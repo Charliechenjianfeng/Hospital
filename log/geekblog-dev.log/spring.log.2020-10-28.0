@@ -1,0 +1,83 @@
+2020-10-28 21:06:36.090  INFO 13364 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 13364 (F:\ideacode\educational\target\classes started by 17875 in F:\ideacode\educational)
+2020-10-28 21:06:36.096  INFO 13364 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2020-10-28 21:06:39.532  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 21:06:39.544  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2020-10-28 21:06:39.679  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90ms. Found 0 Elasticsearch repository interfaces.
+2020-10-28 21:06:39.700  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 21:06:39.708  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2020-10-28 21:06:39.723  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Reactive Elasticsearch repository interfaces.
+2020-10-28 21:06:39.777  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 21:06:39.779  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-28 21:06:39.807  INFO 13364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-28 21:06:40.369  INFO 13364 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@181d8899' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 21:06:40.378  INFO 13364 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 21:06:40.913  INFO 13364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2020-10-28 21:06:40.924  INFO 13364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 21:06:40.924  INFO 13364 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-28 21:06:40.926  INFO 13364 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-10-28 21:06:40.926  INFO 13364 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-10-28 21:06:40.926  INFO 13364 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-10-28 21:06:40.933  INFO 13364 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-10-28 21:06:41.139  INFO 13364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 21:06:41.140  INFO 13364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4901 ms
+2020-10-28 21:06:41.521  INFO 13364 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-10-28 21:06:41.979  INFO 13364 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-10-28 21:06:42.630  WARN 13364 --- [main] c.b.m.core.injector.AbstractMethod       : [com.educational.demo.dao.StudentCourseMapper.deleteById] Has been loaded by XML or SqlProvider or Mybatis's Annotation, so ignoring this injection for [class com.baomidou.mybatisplus.core.injector.methods.DeleteById]
+2020-10-28 21:06:44.399  INFO 13364 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-10-28 21:06:44.703  INFO 13364 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@283ab206, org.springframework.security.web.context.SecurityContextPersistenceFilter@36510e73, org.springframework.security.web.header.HeaderWriterFilter@736b21ee, org.springframework.security.web.authentication.logout.LogoutFilter@d36c1c3, com.educational.demo.security.ValidateCodeFilter@682af059, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2baf72d5, org.springframework.security.web.session.ConcurrentSessionFilter@787d1f9c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d2a86c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26c7b1c6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@682618e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35fa450f, org.springframework.security.web.session.SessionManagementFilter@49754e74, org.springframework.security.web.access.ExceptionTranslationFilter@2616b618, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40a1b6d4]
+2020-10-28 21:06:44.800  INFO 13364 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 21:06:46.597  WARN 13364 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2020-10-28 21:06:46.597  WARN 13364 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2020-10-28 21:06:46.597  WARN 13364 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2020-10-28 21:06:46.597  WARN 13364 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2020-10-28 21:06:47.937  INFO 13364 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2020-10-28 21:06:47.937  INFO 13364 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2020-10-28 21:06:47.937  INFO 13364 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2020-10-28 21:06:48.258  INFO 13364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2020-10-28 21:06:48.259  INFO 13364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-10-28 21:06:48.279  INFO 13364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-10-28 21:06:48.351  INFO 13364 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-10-28 21:06:48.495  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2020-10-28 21:06:48.497  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2020-10-28 21:06:48.533  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2020-10-28 21:06:48.562  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_4
+2020-10-28 21:06:48.566  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2020-10-28 21:06:48.568  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2020-10-28 21:06:48.570  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2020-10-28 21:06:48.571  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2020-10-28 21:06:48.572  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2020-10-28 21:06:48.595  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_5
+2020-10-28 21:06:48.600  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2020-10-28 21:06:48.601  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2020-10-28 21:06:48.605  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2020-10-28 21:06:48.607  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2020-10-28 21:06:48.609  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_6
+2020-10-28 21:06:48.613  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listTableByPageUsingGET_1
+2020-10-28 21:06:48.614  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2020-10-28 21:06:48.616  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2020-10-28 21:06:48.622  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_3
+2020-10-28 21:06:48.623  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2020-10-28 21:06:48.633  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2020-10-28 21:06:48.636  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2020-10-28 21:06:48.637  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_4
+2020-10-28 21:06:48.638  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_4
+2020-10-28 21:06:48.640  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_4
+2020-10-28 21:06:48.642  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2020-10-28 21:06:48.649  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listTableByPageUsingGET_2
+2020-10-28 21:06:48.650  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_5
+2020-10-28 21:06:48.650  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_5
+2020-10-28 21:06:48.658  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_5
+2020-10-28 21:06:48.662  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2020-10-28 21:06:48.665  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listTableByPageUsingGET_3
+2020-10-28 21:06:48.666  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_6
+2020-10-28 21:06:48.668  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_6
+2020-10-28 21:06:48.672  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_6
+2020-10-28 21:06:48.673  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_6
+2020-10-28 21:06:48.678  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2020-10-28 21:06:48.683  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listTableByPageUsingGET_4
+2020-10-28 21:06:48.684  INFO 13364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_7
+2020-10-28 21:06:48.706  INFO 13364 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 13.821 seconds (JVM running for 15.464)
+2020-10-28 21:06:59.274  INFO 13364 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 21:06:59.274  INFO 13364 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 21:06:59.284  INFO 13364 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-10-28 21:07:07.118  INFO 13364 --- [http-nio-8889-exec-3] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
