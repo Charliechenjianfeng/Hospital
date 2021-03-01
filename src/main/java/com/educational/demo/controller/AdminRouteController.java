@@ -65,6 +65,13 @@ public class AdminRouteController {
     public String editRole(@PathVariable("id") Long id, Model model) {
         model.addAttribute("role", roleService.getById(id));
         return "admin/role/role-edit";
+    }
 
+    @ApiOperation("更新挂号页面")
+    @PreAuthorize("hasAuthority('sys:registration:edit')")
+    @GetMapping("/registration/{id}")
+    public String editRegistration(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("registration", roleService.getById(id));
+        return "admin/outpatient/registration-edit";
     }
 }
