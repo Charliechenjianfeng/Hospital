@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.RegistrationMapper">
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Registration">
+        <result property="registrationId" column="registrationId"/>
+        <result property="patientName" column="patientName"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="price" column="price"/>
+        <result property="user" column="user"/>
+        <result property="status" column="status"/>
+        <result property="phone" column="phone"/>
+        <result property="idCard" column="idCard"/>
+        <result property="describe" column="describe"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <association property="department" javaType="com.educational.demo.model.Department">
+            <id property="departmentId" column="departmentId"/>
+            <result property="departmentName" column="departmentName"/>
+        </association>
+        <association property="doctor" javaType="com.educational.demo.model.Doctor">
+            <id property="doctorId" column="doctorId"/>
+            <result property="doctorName" column="doctorName"/>
+        </association>
+        <association property="registrationType" javaType="com.educational.demo.model.RegistrationType">
+            <id property="typeId" column="typeId"/>
+            <result property="type" column="type"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="tableResultMapId" type="com.educational.demo.model.Registration">
+        <result property="registrationId" column="registrationId"/>
+        <result property="patientName" column="patientName"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="price" column="price"/>
+        <result property="user" column="user"/>
+        <result property="status" column="status"/>
+        <result property="phone" column="phone"/>
+        <result property="idCard" column="idCard"/>
+        <result property="describe" column="describe"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <association property="department" javaType="com.educational.demo.model.Department">
+            <id property="departmentId" column="departmentId"/>
+            <result property="departmentName" column="departmentName"/>
+        </association>
+        <association property="doctor" javaType="com.educational.demo.model.Doctor">
+            <id property="doctorId" column="doctorId"/>
+            <result property="doctorName" column="doctorName"/>
+        </association>
+        <association property="registrationType" javaType="com.educational.demo.model.RegistrationType">
+            <id property="typeId" column="typeId"/>
+            <result property="type" column="type"/>
+        </association>
+    </resultMap>
+
+    <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.user, re.status, re.phone, re.idCard, re.describe, re.create_time, re.update_time,
+        dm.departmentName, dt.doctorName, rt.type
+        from registration re left join department dm on re.departmentId = dm.departmentId
+        left join doctor dt on re.doctorId = dt.doctorId
+        left join registrationType rt on re.typeId = rt.typeId
+        where re.status =1
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+        order by re.registrationId
+    </select>
+
+    <select id="listTableById" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.user, re.status, re.phone, re.idCard, re.describe, re.create_time, re.update_time,
+        dm.departmentName, dt.doctorName, rt.type
+        from registration re left join department dm on re.departmentId = dm.departmentId
+        left join doctor dt on re.doctorId = dt.doctorId
+        left join registrationType rt on re.typeId = rt.typeId
+        where dt.doctorId = #{id} and re.status=1
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+        order by re.registrationId
+    </select>
+
+    <delete id="deleteByRegistrationId">
+        delete from registration re where re.registrationId = #{id}
+    </delete>
+
+</mapper>

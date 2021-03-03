@@ -8,10 +8,7 @@ public interface TableConstant {
     String USER_ALIAS = "su.";
     String CATE_ALIAS = "tc.";
     String TAG_ALIAS = "tt.";
-    String TEACHER_ALIAS="t.";
-    String STUDENT_ALIAS="s.";
-    String COURSE_TIME ="ct.";
-    String Grade_ALIAS = "g.";
+    String REGISTRATION_ALIAS = "re";
 
     String LIMIT = "limit ";
 

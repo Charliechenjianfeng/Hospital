@@ -109,4 +109,6 @@ public interface Constant {
 
     String USER = "user";
 
+   public final String ADMINID = "123456";
+
 }

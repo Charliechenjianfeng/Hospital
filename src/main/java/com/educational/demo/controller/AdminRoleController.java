@@ -35,8 +35,7 @@ public class AdminRoleController {
     @ApiOperation("查询所有角色")
     @PreAuthorize("hasAuthority('sys:role:query')")
     @GetMapping("/list")
-    public JsonResult listAll()
-    {    System.out.println("角色这里被执行");
+    public JsonResult listAll() {
         return JsonResult.ok(roleService.listAll());
     }
 

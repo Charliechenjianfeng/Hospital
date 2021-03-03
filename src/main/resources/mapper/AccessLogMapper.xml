@@ -19,11 +19,11 @@
 
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
 
-        select * from sys_access_log
+        select * from sys_access_log sa
         <if test="ew != null and ew.emptyOfWhere == false">
             ${ew.customSqlSegment}
         </if>
-        order by sys_access_log.id
+        order by sa.id
     </select>
 
 </mapper>
