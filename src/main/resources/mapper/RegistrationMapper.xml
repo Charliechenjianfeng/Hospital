@@ -58,7 +58,8 @@
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
         select re.registrationId, re.patientName, re.sex, re.age, re.price, re.user, re.status, re.phone, re.idCard, re.describe, re.create_time, re.update_time,
         dm.departmentName, dt.doctorName, rt.type
-        from registration re left join department dm on re.departmentId = dm.departmentId
+        from registration re
+        left join department dm on re.departmentId = dm.departmentId
         left join doctor dt on re.doctorId = dt.doctorId
         left join registrationType rt on re.typeId = rt.typeId
         where re.status =1
@@ -85,4 +86,7 @@
         delete from registration re where re.registrationId = #{id}
     </delete>
 
+    <update id="transfer">
+        update registration re SET re.status = #{status} where re.registrationId = #{registrationId}
+    </update>
 </mapper>

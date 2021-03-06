@@ -1,418 +1,385 @@
-2021-03-03 16:32:56.060  INFO 16624 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 16:32:56.240  INFO 16624 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 16:33:05.541  INFO 14084 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 14084 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 16:33:05.544  INFO 14084 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 16:33:09.383  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 16:33:09.387  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 16:33:09.468  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 16:33:09.473  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 16:33:09.473  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 16:33:09.481  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 16:33:09.509  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 16:33:09.510  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 16:33:09.547  INFO 14084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2021-03-03 16:33:09.741  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 16:33:09.742  WARN 14084 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 16:33:10.330  INFO 14084 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7fd4e815' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 16:33:10.339  INFO 14084 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 16:33:10.959  INFO 14084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 16:33:10.972  INFO 14084 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 16:33:10.973  INFO 14084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 16:33:10.974  INFO 14084 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 16:33:10.974  INFO 14084 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 16:33:10.975  INFO 14084 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 16:33:10.982  INFO 14084 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 16:33:11.159  INFO 14084 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 16:33:11.159  INFO 14084 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5529 ms
-2021-03-03 16:33:11.553  INFO 14084 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 16:33:12.040  INFO 14084 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 16:33:12.420  WARN 14084 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 16:33:14.712  INFO 14084 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 16:33:15.076  INFO 14084 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b56d8a7, org.springframework.security.web.context.SecurityContextPersistenceFilter@c0004b7, org.springframework.security.web.header.HeaderWriterFilter@196d684b, org.springframework.security.web.authentication.logout.LogoutFilter@408d945b, com.educational.demo.security.ValidateCodeFilter@bb8ead8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ca4c88a, org.springframework.security.web.session.ConcurrentSessionFilter@2d3c501b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63880be9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b8142f4, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1791e231, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13f36d75, org.springframework.security.web.session.SessionManagementFilter@45d38165, org.springframework.security.web.access.ExceptionTranslationFilter@6879e983, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@51fb5fe6]
-2021-03-03 16:33:15.186  INFO 14084 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 16:33:18.348  WARN 14084 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 16:33:18.348  WARN 14084 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 16:33:18.348  WARN 14084 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 16:33:18.348  WARN 14084 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 16:33:21.052  INFO 14084 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 16:33:21.053  INFO 14084 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 16:33:21.053  INFO 14084 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 16:33:21.493  INFO 14084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 16:33:21.494  INFO 14084 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 16:33:21.518  INFO 14084 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 16:33:21.605  INFO 14084 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 16:33:21.902  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 16:33:21.909  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 16:33:21.914  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 16:33:21.916  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 16:33:21.918  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 16:33:21.920  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 16:33:21.922  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 16:33:21.992  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 16:33:22.002  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 16:33:22.004  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 16:33:22.007  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 16:33:22.009  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 16:33:22.011  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 16:33:22.026  INFO 14084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 16:33:22.054  INFO 14084 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 17.663 seconds (JVM running for 23.205)
-2021-03-03 16:33:30.421  INFO 14084 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 16:33:30.422  INFO 14084 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 16:33:30.434  INFO 14084 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
-2021-03-03 16:33:39.434  INFO 14084 --- [http-nio-8889-exec-2] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
-2021-03-03 17:11:05.524  INFO 14084 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 17:11:05.528  INFO 14084 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 17:11:09.802  INFO 18836 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 18836 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 17:11:09.805  INFO 18836 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 17:11:11.453  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:11:11.456  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 17:11:11.494  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 17:11:11.498  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:11:11.499  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 17:11:11.507  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 17:11:11.534  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:11:11.535  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 17:11:11.557  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2021-03-03 17:11:11.812  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.813  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.813  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.814  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.814  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.814  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.814  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:11:11.815  WARN 18836 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 17:11:12.317  INFO 18836 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7cf63b9a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 17:11:12.327  INFO 18836 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 17:11:12.862  INFO 18836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 17:11:12.875  INFO 18836 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 17:11:12.875  INFO 18836 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 17:11:12.877  INFO 18836 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 17:11:12.877  INFO 18836 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 17:11:12.877  INFO 18836 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 17:11:12.882  INFO 18836 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 17:11:13.060  INFO 18836 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 17:11:13.060  INFO 18836 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3115 ms
-2021-03-03 17:11:13.575  INFO 18836 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 17:11:14.107  INFO 18836 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 17:11:14.531  WARN 18836 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 17:11:15.979  INFO 18836 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 17:11:16.266  INFO 18836 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@424a152f, org.springframework.security.web.context.SecurityContextPersistenceFilter@785d6a98, org.springframework.security.web.header.HeaderWriterFilter@3a63d248, org.springframework.security.web.authentication.logout.LogoutFilter@af3295f, com.educational.demo.security.ValidateCodeFilter@7f51f588, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4d75c604, org.springframework.security.web.session.ConcurrentSessionFilter@7a274521, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@614d7fbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ba7db2a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3265995e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@408d945b, org.springframework.security.web.session.SessionManagementFilter@3c4ad54, org.springframework.security.web.access.ExceptionTranslationFilter@4c79ca55, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52d59507]
-2021-03-03 17:11:16.359  INFO 18836 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 17:11:18.218  WARN 18836 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:11:18.218  WARN 18836 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:11:18.219  WARN 18836 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:11:18.219  WARN 18836 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:11:19.331  INFO 18836 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 17:11:19.332  INFO 18836 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 17:11:19.332  INFO 18836 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 17:11:19.657  INFO 18836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 17:11:19.658  INFO 18836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 17:11:19.678  INFO 18836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 17:11:19.734  INFO 18836 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 17:11:20.013  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 17:11:20.025  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 17:11:20.031  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 17:11:20.034  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 17:11:20.036  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 17:11:20.037  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 17:11:20.040  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 17:11:20.080  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 17:11:20.090  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 17:11:20.091  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 17:11:20.093  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 17:11:20.095  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 17:11:20.097  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 17:11:20.111  INFO 18836 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 17:11:20.139  INFO 18836 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 11.122 seconds (JVM running for 13.289)
-2021-03-03 17:11:24.433  INFO 18836 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 17:11:24.434  INFO 18836 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 17:11:24.447  INFO 18836 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-2021-03-03 17:13:12.459  INFO 18836 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 17:13:12.463  INFO 18836 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 17:13:16.425  INFO 11892 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 11892 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 17:13:16.428  INFO 11892 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 17:13:18.305  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:13:18.319  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 17:13:18.354  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 17:13:18.358  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:13:18.359  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 17:13:18.366  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 17:13:18.385  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 17:13:18.389  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 17:13:18.414  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.679  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 17:13:18.680  WARN 11892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 17:13:19.143  INFO 11892 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5b5f9003' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 17:13:19.164  INFO 11892 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 17:13:19.938  INFO 11892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 17:13:19.954  INFO 11892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 17:13:19.954  INFO 11892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 17:13:19.957  INFO 11892 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 17:13:19.958  INFO 11892 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 17:13:19.959  INFO 11892 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 17:13:19.964  INFO 11892 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 17:13:20.300  INFO 11892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 17:13:20.300  INFO 11892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3571 ms
-2021-03-03 17:13:20.656  INFO 11892 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 17:13:21.086  INFO 11892 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 17:13:21.449  WARN 11892 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 17:13:23.078  INFO 11892 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 17:13:23.308  INFO 11892 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c4215d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@7619fbe7, org.springframework.security.web.header.HeaderWriterFilter@6f428e6e, org.springframework.security.web.authentication.logout.LogoutFilter@50b38342, com.educational.demo.security.ValidateCodeFilter@5940b14e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d93ff21, org.springframework.security.web.session.ConcurrentSessionFilter@13714753, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27ec74a3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45539bd8, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5ca4c88a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b56d8a7, org.springframework.security.web.session.SessionManagementFilter@2e4b5da1, org.springframework.security.web.access.ExceptionTranslationFilter@2f0e7fa8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6585df70]
-2021-03-03 17:13:23.398  INFO 11892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 17:13:24.999  WARN 11892 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:13:25.000  WARN 11892 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:13:25.000  WARN 11892 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:13:25.000  WARN 11892 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 17:13:27.092  INFO 11892 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 17:13:27.092  INFO 11892 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 17:13:27.092  INFO 11892 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 17:13:27.373  INFO 11892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 17:13:27.374  INFO 11892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 17:13:27.395  INFO 11892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 17:13:27.444  INFO 11892 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 17:13:27.654  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 17:13:27.661  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 17:13:27.666  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 17:13:27.667  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 17:13:27.668  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 17:13:27.670  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 17:13:27.671  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 17:13:27.701  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 17:13:27.707  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 17:13:27.709  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 17:13:27.710  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 17:13:27.712  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 17:13:27.713  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 17:13:27.723  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 17:13:27.749  INFO 11892 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 12.041 seconds (JVM running for 14.127)
-2021-03-03 17:13:36.762  INFO 11892 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 17:13:36.762  INFO 11892 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 17:13:36.771  INFO 11892 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2021-03-03 17:14:17.673  INFO 11892 --- [http-nio-8889-exec-4] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
-2021-03-03 19:11:59.351  INFO 11892 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:11:59.364  INFO 11892 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 19:12:04.705  INFO 15024 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 15024 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 19:12:04.708  INFO 15024 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 19:12:06.149  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:12:06.151  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:12:06.219  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 19:12:06.229  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:12:06.240  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:12:06.254  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 19:12:06.278  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:12:06.281  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 19:12:06.303  INFO 15024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.510  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.511  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:12:06.511  WARN 15024 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 19:12:06.935  INFO 15024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@738a5848' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:12:06.944  INFO 15024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:12:07.542  INFO 15024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 19:12:07.555  INFO 15024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 19:12:07.556  INFO 15024 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 19:12:07.558  INFO 15024 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 19:12:07.558  INFO 15024 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 19:12:07.559  INFO 15024 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 19:12:07.565  INFO 15024 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 19:12:07.724  INFO 15024 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 19:12:07.725  INFO 15024 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2939 ms
-2021-03-03 19:12:08.435  INFO 15024 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 19:12:08.843  INFO 15024 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 19:12:09.258  WARN 15024 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 19:12:10.954  INFO 15024 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 19:12:11.312  INFO 15024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61d42275, org.springframework.security.web.context.SecurityContextPersistenceFilter@67784537, org.springframework.security.web.header.HeaderWriterFilter@286dfa20, org.springframework.security.web.authentication.logout.LogoutFilter@be1c08a, com.educational.demo.security.ValidateCodeFilter@1815577b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@257b3561, org.springframework.security.web.session.ConcurrentSessionFilter@1ac3a6f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52290e63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11978f52, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6a878778, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6614289a, org.springframework.security.web.session.SessionManagementFilter@508f4bb5, org.springframework.security.web.access.ExceptionTranslationFilter@76b642aa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12200670]
-2021-03-03 19:12:11.499  INFO 15024 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:12:13.334  WARN 15024 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:12:13.335  WARN 15024 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:12:13.335  WARN 15024 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:12:13.336  WARN 15024 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:12:14.457  INFO 15024 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 19:12:14.457  INFO 15024 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 19:12:14.457  INFO 15024 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 19:12:14.741  INFO 15024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 19:12:14.742  INFO 15024 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 19:12:14.760  INFO 15024 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 19:12:14.808  INFO 15024 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 19:12:15.017  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 19:12:15.019  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 19:12:15.021  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 19:12:15.026  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 19:12:15.042  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 19:12:15.046  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 19:12:15.048  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 19:12:15.049  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 19:12:15.051  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 19:12:15.055  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 19:12:15.082  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
-2021-03-03 19:12:15.086  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 19:12:15.088  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
-2021-03-03 19:12:15.089  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
-2021-03-03 19:12:15.090  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 19:12:15.091  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 19:12:15.099  INFO 15024 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 19:12:15.121  INFO 15024 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 11.477 seconds (JVM running for 14.354)
-2021-03-03 19:12:34.080  INFO 15024 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 19:12:34.080  INFO 15024 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 19:12:34.088  INFO 15024 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2021-03-03 19:12:43.582  INFO 15024 --- [http-nio-8889-exec-2] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
-2021-03-03 19:13:01.395  WARN 15024 --- [http-nio-8889-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
-2021-03-03 19:13:08.920  WARN 15024 --- [http-nio-8889-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
-2021-03-03 19:31:01.469  INFO 15024 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:31:01.479  INFO 15024 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 19:31:05.440  INFO 17276 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 17276 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 19:31:05.444  INFO 17276 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 19:31:06.989  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:31:06.991  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:31:07.039  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 19:31:07.043  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:31:07.044  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:31:07.050  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 19:31:07.064  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:31:07.066  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 19:31:07.081  INFO 17276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 Redis repository interfaces.
-2021-03-03 19:31:07.276  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.276  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.276  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.277  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.277  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.277  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.277  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:31:07.278  WARN 17276 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 19:31:07.665  INFO 17276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@29f3c438' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:31:07.681  INFO 17276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:31:08.327  INFO 17276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 19:31:08.345  INFO 17276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 19:31:08.390  INFO 17276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 19:31:08.393  INFO 17276 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 19:31:08.394  INFO 17276 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 19:31:08.395  INFO 17276 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 19:31:08.399  INFO 17276 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 19:31:08.528  INFO 17276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 19:31:08.528  INFO 17276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2888 ms
-2021-03-03 19:31:08.958  INFO 17276 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 19:31:09.451  INFO 17276 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 19:31:09.766  WARN 17276 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 19:31:11.090  INFO 17276 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 19:31:11.286  INFO 17276 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12e3f4ae, org.springframework.security.web.context.SecurityContextPersistenceFilter@6207145c, org.springframework.security.web.header.HeaderWriterFilter@4e9ea32f, org.springframework.security.web.authentication.logout.LogoutFilter@64d93096, com.educational.demo.security.ValidateCodeFilter@71369e1a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@335cdd2, org.springframework.security.web.session.ConcurrentSessionFilter@66a8751a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ccf6114, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6fcc0a1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@60a99f3d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@537451d5, org.springframework.security.web.session.SessionManagementFilter@56ba8e8c, org.springframework.security.web.access.ExceptionTranslationFilter@b849fa6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1124dd79]
-2021-03-03 19:31:11.408  INFO 17276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:31:12.810  WARN 17276 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:31:12.810  WARN 17276 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:31:12.811  WARN 17276 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:31:12.811  WARN 17276 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:31:13.925  INFO 17276 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 19:31:13.926  INFO 17276 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 19:31:13.926  INFO 17276 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 19:31:14.218  INFO 17276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 19:31:14.220  INFO 17276 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 19:31:14.238  INFO 17276 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 19:31:14.284  INFO 17276 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 19:31:14.483  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 19:31:14.484  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 19:31:14.486  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 19:31:14.492  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 19:31:14.493  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 19:31:14.497  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 19:31:14.498  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 19:31:14.500  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 19:31:14.501  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 19:31:14.502  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 19:31:14.528  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
-2021-03-03 19:31:14.533  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 19:31:14.534  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
-2021-03-03 19:31:14.536  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
-2021-03-03 19:31:14.537  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 19:31:14.538  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 19:31:14.547  INFO 17276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 19:31:14.567  INFO 17276 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 9.974 seconds (JVM running for 11.936)
-2021-03-03 19:31:33.241  INFO 17276 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 19:31:33.241  INFO 17276 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 19:31:33.255  INFO 17276 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2021-03-03 19:31:45.993  INFO 17276 --- [http-nio-8889-exec-1] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
-2021-03-03 19:38:19.874  INFO 17276 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:38:19.877  INFO 17276 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2021-03-03 19:39:40.992  INFO 860 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 860 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
-2021-03-03 19:39:40.995  INFO 860 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
-2021-03-03 19:39:42.334  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:39:42.338  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:39:42.370  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 Elasticsearch repository interfaces.
-2021-03-03 19:39:42.374  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:39:42.375  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2021-03-03 19:39:42.382  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Reactive Elasticsearch repository interfaces.
-2021-03-03 19:39:42.396  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-03-03 19:39:42.398  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-03-03 19:39:42.415  INFO 860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.696  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
-2021-03-03 19:39:42.697  WARN 860 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
-2021-03-03 19:39:43.048  INFO 860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2f9dda71' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:39:43.057  INFO 860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-03-03 19:39:43.457  INFO 860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2021-03-03 19:39:43.468  INFO 860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-03 19:39:43.469  INFO 860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2021-03-03 19:39:43.471  INFO 860 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2021-03-03 19:39:43.471  INFO 860 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2021-03-03 19:39:43.471  INFO 860 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2021-03-03 19:39:43.475  INFO 860 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2021-03-03 19:39:43.585  INFO 860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-03 19:39:43.586  INFO 860 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2534 ms
-2021-03-03 19:39:43.898  INFO 860 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2021-03-03 19:39:44.266  INFO 860 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2021-03-03 19:39:44.608  WARN 860 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
-2021-03-03 19:39:45.904  INFO 860 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-03 19:39:46.097  INFO 860 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66b90ab3, org.springframework.security.web.context.SecurityContextPersistenceFilter@44106e25, org.springframework.security.web.header.HeaderWriterFilter@52d59507, org.springframework.security.web.authentication.logout.LogoutFilter@2aa811f9, com.educational.demo.security.ValidateCodeFilter@3e0a9b1d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54737322, org.springframework.security.web.session.ConcurrentSessionFilter@4bb9f7d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5649f55, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@401b67a9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7323c38c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16e4db59, org.springframework.security.web.session.SessionManagementFilter@3265995e, org.springframework.security.web.access.ExceptionTranslationFilter@55e5415d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@50e1f3fc]
-2021-03-03 19:39:46.207  INFO 860 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-03 19:39:47.603  WARN 860 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:39:47.603  WARN 860 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:39:47.603  WARN 860 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:39:47.603  WARN 860 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2021-03-03 19:39:49.683  INFO 860 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
-2021-03-03 19:39:49.683  INFO 860 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
-2021-03-03 19:39:49.683  INFO 860 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
-2021-03-03 19:39:49.960  INFO 860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2021-03-03 19:39:49.961  INFO 860 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-03 19:39:49.980  INFO 860 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-03 19:39:50.031  INFO 860 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-03 19:39:50.231  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
-2021-03-03 19:39:50.233  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
-2021-03-03 19:39:50.234  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
-2021-03-03 19:39:50.240  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
-2021-03-03 19:39:50.241  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
-2021-03-03 19:39:50.245  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
-2021-03-03 19:39:50.247  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
-2021-03-03 19:39:50.248  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
-2021-03-03 19:39:50.249  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
-2021-03-03 19:39:50.250  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
-2021-03-03 19:39:50.278  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
-2021-03-03 19:39:50.282  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
-2021-03-03 19:39:50.283  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
-2021-03-03 19:39:50.284  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
-2021-03-03 19:39:50.286  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
-2021-03-03 19:39:50.287  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
-2021-03-03 19:39:50.295  INFO 860 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
-2021-03-03 19:39:50.318  INFO 860 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 9.883 seconds (JVM running for 11.364)
-2021-03-03 19:40:03.695  INFO 860 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-03 19:40:03.695  INFO 860 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-03 19:40:03.704  INFO 860 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2021-03-03 19:40:14.065  INFO 860 --- [http-nio-8889-exec-2] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
+2021-03-07 00:11:51.483  INFO 7508 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-07 00:11:51.493  INFO 7508 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-03-07 00:11:56.305  INFO 16472 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 16472 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
+2021-03-07 00:11:56.308  INFO 16472 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2021-03-07 00:11:57.612  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 00:11:57.615  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2021-03-07 00:11:57.652  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 Elasticsearch repository interfaces.
+2021-03-07 00:11:57.656  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 00:11:57.657  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2021-03-07 00:11:57.665  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Reactive Elasticsearch repository interfaces.
+2021-03-07 00:11:57.680  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 00:11:57.692  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-07 00:11:57.708  INFO 16472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Redis repository interfaces.
+2021-03-07 00:11:57.911  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.912  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.educational.demo.dao.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.913  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.913  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.913  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationTypeMapper' and 'com.educational.demo.dao.RegistrationTypeMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.914  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.914  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.914  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.915  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 00:11:57.916  WARN 16472 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
+2021-03-07 00:11:58.389  INFO 16472 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2c3158e0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 00:11:58.419  INFO 16472 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 00:11:58.993  INFO 16472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2021-03-07 00:11:59.008  INFO 16472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-07 00:11:59.009  INFO 16472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-03-07 00:11:59.011  INFO 16472 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-03-07 00:11:59.011  INFO 16472 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-03-07 00:11:59.011  INFO 16472 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-03-07 00:11:59.015  INFO 16472 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-03-07 00:11:59.149  INFO 16472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-07 00:11:59.149  INFO 16472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2710 ms
+2021-03-07 00:11:59.481  INFO 16472 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-03-07 00:11:59.854  INFO 16472 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-03-07 00:12:00.154  WARN 16472 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Department.
+2021-03-07 00:12:00.234  WARN 16472 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
+2021-03-07 00:12:00.259  WARN 16472 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.RegistrationType.
+2021-03-07 00:12:01.563  INFO 16472 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-07 00:12:01.787  INFO 16472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72e49f6a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f82248f, org.springframework.security.web.header.HeaderWriterFilter@54f25b42, org.springframework.security.web.authentication.logout.LogoutFilter@2ac9e53c, com.educational.demo.security.ValidateCodeFilter@639c7f9c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27dc81be, org.springframework.security.web.session.ConcurrentSessionFilter@6150afc6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22002459, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4dffff9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3595086b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e4b5da1, org.springframework.security.web.session.SessionManagementFilter@521c67f0, org.springframework.security.web.access.ExceptionTranslationFilter@2633d09c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@af3295f]
+2021-03-07 00:12:01.879  INFO 16472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-07 00:12:03.337  WARN 16472 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 00:12:03.337  WARN 16472 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 00:12:03.337  WARN 16472 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 00:12:03.337  WARN 16472 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 00:12:04.422  INFO 16472 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2021-03-07 00:12:04.422  INFO 16472 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2021-03-07 00:12:04.423  INFO 16472 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2021-03-07 00:12:04.686  INFO 16472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2021-03-07 00:12:04.687  INFO 16472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-07 00:12:04.708  INFO 16472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-07 00:12:04.763  INFO 16472 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-07 00:12:04.956  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2021-03-07 00:12:04.984  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2021-03-07 00:12:04.985  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2021-03-07 00:12:04.987  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2021-03-07 00:12:04.989  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2021-03-07 00:12:04.995  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2021-03-07 00:12:04.996  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2021-03-07 00:12:05.000  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2021-03-07 00:12:05.001  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2021-03-07 00:12:05.002  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2021-03-07 00:12:05.004  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2021-03-07 00:12:05.005  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-03-07 00:12:05.032  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
+2021-03-07 00:12:05.036  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
+2021-03-07 00:12:05.038  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2021-03-07 00:12:05.039  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2021-03-07 00:12:05.040  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2021-03-07 00:12:05.041  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2021-03-07 00:12:05.050  INFO 16472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2021-03-07 00:12:05.072  INFO 16472 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 9.615 seconds (JVM running for 12.198)
+2021-03-07 00:12:13.843  INFO 16472 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-07 00:12:13.843  INFO 16472 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-07 00:12:13.854  INFO 16472 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2021-03-07 00:12:23.165  INFO 16472 --- [http-nio-8889-exec-2] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
+2021-03-07 01:34:43.739  INFO 16472 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:34:43.748  INFO 16472 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-03-07 01:34:48.468  INFO 1196 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 1196 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
+2021-03-07 01:34:48.470  INFO 1196 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2021-03-07 01:34:49.807  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:34:49.809  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:34:49.855  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 0 Elasticsearch repository interfaces.
+2021-03-07 01:34:49.859  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:34:49.860  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:34:49.868  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Reactive Elasticsearch repository interfaces.
+2021-03-07 01:34:49.885  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:34:49.887  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-07 01:34:49.908  INFO 1196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Redis repository interfaces.
+2021-03-07 01:34:50.081  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.educational.demo.dao.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationTypeMapper' and 'com.educational.demo.dao.RegistrationTypeMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.082  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.083  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:34:50.083  WARN 1196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
+2021-03-07 01:34:50.449  INFO 1196 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3ebc955b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:34:50.458  INFO 1196 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:34:50.858  INFO 1196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2021-03-07 01:34:50.868  INFO 1196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-07 01:34:50.868  INFO 1196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-03-07 01:34:50.870  INFO 1196 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-03-07 01:34:50.870  INFO 1196 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-03-07 01:34:50.870  INFO 1196 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-03-07 01:34:50.874  INFO 1196 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-03-07 01:34:50.983  INFO 1196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-07 01:34:50.984  INFO 1196 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2464 ms
+2021-03-07 01:34:51.286  INFO 1196 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-03-07 01:34:51.686  INFO 1196 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-03-07 01:34:51.994  WARN 1196 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Department.
+2021-03-07 01:34:52.055  WARN 1196 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
+2021-03-07 01:34:52.080  WARN 1196 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.RegistrationType.
+2021-03-07 01:34:53.420  INFO 1196 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-07 01:34:53.623  INFO 1196 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c02899, org.springframework.security.web.context.SecurityContextPersistenceFilter@41b66d1, org.springframework.security.web.header.HeaderWriterFilter@15ad5acb, org.springframework.security.web.authentication.logout.LogoutFilter@5ca4c88a, com.educational.demo.security.ValidateCodeFilter@3271ec2a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@33fec21, org.springframework.security.web.session.ConcurrentSessionFilter@558127d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@148fca83, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60b553f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3c62be3c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b895e76, org.springframework.security.web.session.SessionManagementFilter@4bb9f7d4, org.springframework.security.web.access.ExceptionTranslationFilter@424a152f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@16e4db59]
+2021-03-07 01:34:53.715  INFO 1196 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:34:55.179  WARN 1196 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:34:55.179  WARN 1196 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:34:55.179  WARN 1196 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:34:55.179  WARN 1196 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:34:56.261  INFO 1196 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2021-03-07 01:34:56.261  INFO 1196 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2021-03-07 01:34:56.261  INFO 1196 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2021-03-07 01:34:56.527  INFO 1196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2021-03-07 01:34:56.528  INFO 1196 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-07 01:34:56.549  INFO 1196 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-07 01:34:56.609  INFO 1196 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-07 01:34:56.802  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2021-03-07 01:34:56.830  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2021-03-07 01:34:56.832  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2021-03-07 01:34:56.834  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2021-03-07 01:34:56.836  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2021-03-07 01:34:56.842  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2021-03-07 01:34:56.844  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2021-03-07 01:34:56.847  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2021-03-07 01:34:56.848  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2021-03-07 01:34:56.849  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2021-03-07 01:34:56.851  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2021-03-07 01:34:56.853  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-03-07 01:34:56.878  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
+2021-03-07 01:34:56.883  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
+2021-03-07 01:34:56.884  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2021-03-07 01:34:56.885  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2021-03-07 01:34:56.887  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2021-03-07 01:34:56.888  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2021-03-07 01:34:56.896  INFO 1196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2021-03-07 01:34:56.918  INFO 1196 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 9.034 seconds (JVM running for 10.468)
+2021-03-07 01:35:12.555  INFO 1196 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-07 01:35:12.556  INFO 1196 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-07 01:35:12.567  INFO 1196 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2021-03-07 01:35:25.347  INFO 1196 --- [http-nio-8889-exec-3] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
+2021-03-07 01:39:23.987  INFO 1196 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:39:23.992  INFO 1196 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-03-07 01:39:28.422  INFO 18244 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 18244 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
+2021-03-07 01:39:28.426  INFO 18244 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2021-03-07 01:39:29.678  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:39:29.680  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:39:29.715  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 Elasticsearch repository interfaces.
+2021-03-07 01:39:29.720  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:39:29.721  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:39:29.730  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 Reactive Elasticsearch repository interfaces.
+2021-03-07 01:39:29.756  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:39:29.758  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-07 01:39:29.781  INFO 18244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2021-03-07 01:39:29.960  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.961  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.educational.demo.dao.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.961  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.961  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.962  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationTypeMapper' and 'com.educational.demo.dao.RegistrationTypeMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.962  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.962  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.962  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.962  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:39:29.963  WARN 18244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
+2021-03-07 01:39:30.382  INFO 18244 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@8c12524' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:39:30.390  INFO 18244 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:39:30.933  INFO 18244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2021-03-07 01:39:30.943  INFO 18244 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-07 01:39:30.943  INFO 18244 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-03-07 01:39:30.945  INFO 18244 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-03-07 01:39:30.945  INFO 18244 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-03-07 01:39:30.945  INFO 18244 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-03-07 01:39:30.949  INFO 18244 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-03-07 01:39:31.073  INFO 18244 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-07 01:39:31.073  INFO 18244 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2565 ms
+2021-03-07 01:39:31.487  INFO 18244 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-03-07 01:39:31.896  INFO 18244 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-03-07 01:39:32.192  WARN 18244 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Department.
+2021-03-07 01:39:32.280  WARN 18244 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
+2021-03-07 01:39:32.306  WARN 18244 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.RegistrationType.
+2021-03-07 01:39:33.966  INFO 18244 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-07 01:39:34.185  INFO 18244 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65ff4b8c, org.springframework.security.web.context.SecurityContextPersistenceFilter@35d4035f, org.springframework.security.web.header.HeaderWriterFilter@124ff64d, org.springframework.security.web.authentication.logout.LogoutFilter@3278d065, com.educational.demo.security.ValidateCodeFilter@64440065, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@c677d7e, org.springframework.security.web.session.ConcurrentSessionFilter@54737322, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f4fc83f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70ce2fb2, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@215a0264, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b81938d, org.springframework.security.web.session.SessionManagementFilter@75aa7703, org.springframework.security.web.access.ExceptionTranslationFilter@7e9a836, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d2f09a4]
+2021-03-07 01:39:34.284  INFO 18244 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:39:35.792  WARN 18244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:39:35.793  WARN 18244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:39:35.793  WARN 18244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:39:35.793  WARN 18244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:39:36.877  INFO 18244 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2021-03-07 01:39:36.877  INFO 18244 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2021-03-07 01:39:36.877  INFO 18244 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2021-03-07 01:39:37.140  INFO 18244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2021-03-07 01:39:37.141  INFO 18244 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-07 01:39:37.160  INFO 18244 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-07 01:39:37.214  INFO 18244 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-07 01:39:37.405  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2021-03-07 01:39:37.432  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2021-03-07 01:39:37.433  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2021-03-07 01:39:37.435  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2021-03-07 01:39:37.437  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2021-03-07 01:39:37.443  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2021-03-07 01:39:37.445  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2021-03-07 01:39:37.449  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2021-03-07 01:39:37.450  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2021-03-07 01:39:37.451  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2021-03-07 01:39:37.453  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2021-03-07 01:39:37.454  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-03-07 01:39:37.481  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
+2021-03-07 01:39:37.485  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
+2021-03-07 01:39:37.486  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2021-03-07 01:39:37.487  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2021-03-07 01:39:37.489  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2021-03-07 01:39:37.491  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2021-03-07 01:39:37.499  INFO 18244 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2021-03-07 01:39:37.521  INFO 18244 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 10.105 seconds (JVM running for 12.754)
+2021-03-07 01:39:49.759  INFO 18244 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-07 01:39:49.759  INFO 18244 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-07 01:39:49.768  INFO 18244 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-03-07 01:39:56.649  INFO 18244 --- [http-nio-8889-exec-3] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
+2021-03-07 01:46:33.061  INFO 18244 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:46:33.065  INFO 18244 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-03-07 01:46:37.715  INFO 5340 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 5340 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
+2021-03-07 01:46:37.718  INFO 5340 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2021-03-07 01:46:39.199  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:46:39.201  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:46:39.236  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 Elasticsearch repository interfaces.
+2021-03-07 01:46:39.240  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:46:39.251  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2021-03-07 01:46:39.258  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 Reactive Elasticsearch repository interfaces.
+2021-03-07 01:46:39.270  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 01:46:39.271  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-07 01:46:39.287  INFO 5340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
+2021-03-07 01:46:39.428  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.educational.demo.dao.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationTypeMapper' and 'com.educational.demo.dao.RegistrationTypeMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.429  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.430  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 01:46:39.430  WARN 5340 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
+2021-03-07 01:46:39.861  INFO 5340 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2abafa97' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:46:39.871  INFO 5340 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 01:46:40.332  INFO 5340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2021-03-07 01:46:40.343  INFO 5340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-07 01:46:40.343  INFO 5340 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-03-07 01:46:40.345  INFO 5340 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-03-07 01:46:40.345  INFO 5340 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-03-07 01:46:40.346  INFO 5340 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-03-07 01:46:40.349  INFO 5340 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-03-07 01:46:40.476  INFO 5340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-07 01:46:40.476  INFO 5340 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2670 ms
+2021-03-07 01:46:40.809  INFO 5340 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-03-07 01:46:41.356  INFO 5340 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-03-07 01:46:41.672  WARN 5340 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Department.
+2021-03-07 01:46:41.744  WARN 5340 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
+2021-03-07 01:46:41.771  WARN 5340 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.RegistrationType.
+2021-03-07 01:46:43.213  INFO 5340 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-07 01:46:43.423  INFO 5340 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e4b5da1, org.springframework.security.web.context.SecurityContextPersistenceFilter@672d8370, org.springframework.security.web.header.HeaderWriterFilter@7ccf6114, org.springframework.security.web.authentication.logout.LogoutFilter@2ac9e53c, com.educational.demo.security.ValidateCodeFilter@71369e1a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27dc81be, org.springframework.security.web.session.ConcurrentSessionFilter@54f25b42, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f82248f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a2d66e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@627d35ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@312819ae, org.springframework.security.web.session.SessionManagementFilter@670c171c, org.springframework.security.web.access.ExceptionTranslationFilter@6207145c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@af3295f]
+2021-03-07 01:46:43.516  INFO 5340 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-07 01:46:45.172  WARN 5340 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:46:45.172  WARN 5340 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:46:45.172  WARN 5340 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:46:45.172  WARN 5340 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 01:46:46.266  INFO 5340 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2021-03-07 01:46:46.267  INFO 5340 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2021-03-07 01:46:46.267  INFO 5340 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2021-03-07 01:46:46.549  INFO 5340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2021-03-07 01:46:46.551  INFO 5340 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-07 01:46:46.574  INFO 5340 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-07 01:46:46.630  INFO 5340 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-07 01:46:46.842  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2021-03-07 01:46:46.872  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2021-03-07 01:46:46.874  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2021-03-07 01:46:46.875  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2021-03-07 01:46:46.877  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2021-03-07 01:46:46.884  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2021-03-07 01:46:46.885  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2021-03-07 01:46:46.890  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2021-03-07 01:46:46.891  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2021-03-07 01:46:46.892  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2021-03-07 01:46:46.894  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2021-03-07 01:46:46.896  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-03-07 01:46:46.922  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
+2021-03-07 01:46:46.928  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
+2021-03-07 01:46:46.929  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2021-03-07 01:46:46.930  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2021-03-07 01:46:46.931  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2021-03-07 01:46:46.933  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2021-03-07 01:46:46.941  INFO 5340 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2021-03-07 01:46:46.970  INFO 5340 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 10.601 seconds (JVM running for 12.976)
+2021-03-07 01:46:52.634  INFO 5340 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-07 01:46:52.634  INFO 5340 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-07 01:46:52.644  INFO 5340 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2021-03-07 01:47:02.341  INFO 5340 --- [http-nio-8889-exec-1] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功
+2021-03-07 02:00:38.955  INFO 5340 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-07 02:00:38.959  INFO 5340 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-03-07 02:00:43.428  INFO 11608 --- [main] com.educational.demo.DemoApplication     : Starting DemoApplication on DESKTOP-Q0E2OEJ with PID 11608 (F:\Hospital\educational\target\classes started by 17875 in F:\Hospital\educational)
+2021-03-07 02:00:43.432  INFO 11608 --- [main] com.educational.demo.DemoApplication     : The following profiles are active: dev
+2021-03-07 02:00:44.682  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 02:00:44.684  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2021-03-07 02:00:44.721  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 Elasticsearch repository interfaces.
+2021-03-07 02:00:44.725  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 02:00:44.726  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2021-03-07 02:00:44.735  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 Reactive Elasticsearch repository interfaces.
+2021-03-07 02:00:44.767  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-07 02:00:44.771  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-07 02:00:44.820  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2021-03-07 02:00:45.034  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'accessLogMapper' and 'com.educational.demo.dao.AccessLogMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.034  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.educational.demo.dao.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.034  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'menuMapper' and 'com.educational.demo.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.034  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationMapper' and 'com.educational.demo.dao.RegistrationMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.034  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'registrationTypeMapper' and 'com.educational.demo.dao.RegistrationTypeMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.035  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.educational.demo.dao.RoleMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.035  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMenuMapper' and 'com.educational.demo.dao.RoleMenuMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.035  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleUserMapper' and 'com.educational.demo.dao.RoleUserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.035  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.educational.demo.dao.UserMapper' mapperInterface. Bean already defined with the same name!
+2021-03-07 02:00:45.035  WARN 11608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.educational.demo.dao]' package. Please check your configuration.
+2021-03-07 02:00:45.425  INFO 11608 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7ab802f4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 02:00:45.436  INFO 11608 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-07 02:00:45.884  INFO 11608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2021-03-07 02:00:45.894  INFO 11608 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-07 02:00:45.894  INFO 11608 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-03-07 02:00:45.896  INFO 11608 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-03-07 02:00:45.896  INFO 11608 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-03-07 02:00:45.897  INFO 11608 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-03-07 02:00:45.900  INFO 11608 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-03-07 02:00:46.012  INFO 11608 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-07 02:00:46.012  INFO 11608 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2525 ms
+2021-03-07 02:00:46.342  INFO 11608 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-03-07 02:00:46.738  INFO 11608 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-03-07 02:00:47.060  WARN 11608 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Department.
+2021-03-07 02:00:47.117  WARN 11608 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.Registration.
+2021-03-07 02:00:47.142  WARN 11608 --- [main] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.educational.demo.model.RegistrationType.
+2021-03-07 02:00:48.540  INFO 11608 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-07 02:00:48.750  INFO 11608 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c83ed77, org.springframework.security.web.context.SecurityContextPersistenceFilter@11f9b95a, org.springframework.security.web.header.HeaderWriterFilter@4dd4965a, org.springframework.security.web.authentication.logout.LogoutFilter@49d979c4, com.educational.demo.security.ValidateCodeFilter@5dcf0772, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7fbbdd8a, org.springframework.security.web.session.ConcurrentSessionFilter@2cd5b19c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@687e561b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ac3a6f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79ec57b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d271a54, org.springframework.security.web.session.SessionManagementFilter@4e26987b, org.springframework.security.web.access.ExceptionTranslationFilter@612ac38b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b849fa6]
+2021-03-07 02:00:48.871  INFO 11608 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-07 02:00:50.551  WARN 11608 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 02:00:50.551  WARN 11608 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 02:00:50.551  WARN 11608 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 02:00:50.551  WARN 11608 --- [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2021-03-07 02:00:51.643  INFO 11608 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Spring Data Elasticsearch: 4.0.4.RELEASE
+2021-03-07 02:00:51.643  INFO 11608 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client in build: 7.6.2
+2021-03-07 02:00:51.644  INFO 11608 --- [main] o.s.d.elasticsearch.support.VersionInfo  : Version Elasticsearch Client used: 7.6.2
+2021-03-07 02:00:51.917  INFO 11608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2021-03-07 02:00:51.918  INFO 11608 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-07 02:00:51.936  INFO 11608 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-07 02:00:51.989  INFO 11608 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-07 02:00:52.191  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_1
+2021-03-07 02:00:52.219  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_1
+2021-03-07 02:00:52.221  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_1
+2021-03-07 02:00:52.222  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_1
+2021-03-07 02:00:52.224  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_2
+2021-03-07 02:00:52.231  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_1
+2021-03-07 02:00:52.232  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllUsingGET_3
+2021-03-07 02:00:52.236  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_2
+2021-03-07 02:00:52.237  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_2
+2021-03-07 02:00:52.238  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_2
+2021-03-07 02:00:52.240  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_1
+2021-03-07 02:00:52.241  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-03-07 02:00:52.270  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changeStatusUsingPUT_2
+2021-03-07 02:00:52.274  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listByPageUsingGET_3
+2021-03-07 02:00:52.276  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeUsingDELETE_3
+2021-03-07 02:00:52.278  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: removeBatchUsingDELETE_3
+2021-03-07 02:00:52.279  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveUsingPOST_2
+2021-03-07 02:00:52.281  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2021-03-07 02:00:52.290  INFO 11608 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginPageUsingGET_1
+2021-03-07 02:00:52.310  INFO 11608 --- [main] com.educational.demo.DemoApplication     : Started DemoApplication in 9.557 seconds (JVM running for 11.134)
+2021-03-07 02:01:04.596  INFO 11608 --- [http-nio-8889-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-07 02:01:04.596  INFO 11608 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-07 02:01:04.605  INFO 11608 --- [http-nio-8889-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-03-07 02:01:14.678  INFO 11608 --- [http-nio-8889-exec-1] c.e.d.s.MyAuthenticationSuccessHandler   : 登录成功

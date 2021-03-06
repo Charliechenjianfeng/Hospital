@@ -8,9 +8,9 @@ public interface Constant {
 
     String HOME_HREF = "/admin/page/home/dashboard";
 
-    String LOGO_TITLE = "教务网后台管理";
+    String LOGO_TITLE = "医院后台管理";
 
-    String LOGO_IMAGE = "/static/admin/layuimini/images/logo.png";
+    String LOGO_IMAGE = "/static/admin/layuimini/images/logo.jpg";
 
     Integer MAX_TOP_ARTICLES = 6;
 

@@ -8,6 +8,7 @@
         <result property="sex" column="sex"/>
         <result property="email" column="email"/>
         <result property="phone" column="phone"/>
+        <result property="status" column="status"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <association property="role" javaType="com.educational.demo.model.Role">

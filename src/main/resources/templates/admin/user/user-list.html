@@ -136,7 +136,7 @@
                         align: 'center',
                         hide: (!hasPermission('sys:user:edit')),
                         templet: function (data) {
-                            let isChecked = data.status == 1 ? "checked" : "";
+                            let isChecked = data.status === 1 ? "checked" : "";
                             return '<input type="checkbox" lay-skin="switch" lay-text="启用|禁用" lay-filter="status-filter"' + isChecked + '> ';
                         }
                     },
@@ -238,7 +238,7 @@
                     obj.elem.checked = !x;
                 }
                 form.render();
-            })
+            });
             return false;
         });
 

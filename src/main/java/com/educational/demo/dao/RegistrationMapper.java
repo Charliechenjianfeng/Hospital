@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.logging.log4j.message.LoggerNameAwareMessage;
 import org.springframework.stereotype.Repository;
 
+import java.util.function.LongFunction;
+
 /**
  * @Author: Mångata
  * @Email:1787506199a@gmail.com
@@ -36,9 +38,17 @@ public interface RegistrationMapper extends BaseMapper<Registration> {
 
     /**
      * 根据id删除
-     * @param Id 挂号id
+     * @param id 挂号id
      */
-    void deleteByRegistrationId(Long Id);
+    void deleteByRegistrationId(Long id);
+
+
+    /**
+     * 转院操作
+     * @param registrationId 挂号id
+     * @param status 状态
+     */
+    void transfer(Long registrationId, Integer status);
 
 
 

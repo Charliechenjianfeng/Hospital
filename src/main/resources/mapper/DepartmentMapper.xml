@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.DepartmentMapper">
+
+
+    <select id="listAllPid" resultType="com.educational.demo.model.Department">
+        select d.departmentId,d.departmentName from department d where d.pid = 0
+    </select>
+
+    <select id="listByPid" resultType="com.educational.demo.model.Department">
+        select d.departmentId,d.departmentName from department d where d.pid = #{id}
+    </select>
+
+
+</mapper>

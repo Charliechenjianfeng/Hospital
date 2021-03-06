@@ -5,11 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.common.TableConstant;
 import com.educational.demo.dao.RegistrationMapper;
 import com.educational.demo.model.Registration;
-import com.educational.demo.model.RoleUser;
 import com.educational.demo.query.RegistrationQuery;
 import com.educational.demo.service.RegistrationService;
 import com.educational.demo.util.StringUtils;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -79,7 +77,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void changeStatus(Registration registration) {
-        registrationMapper.updateById(registration);
+        Long registrationId = registration.getRegistrationId();
+        Integer status = registration.getStatus();
+        registrationMapper.transfer(registrationId,status);
     }
 
 }

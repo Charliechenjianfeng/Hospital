@@ -9,6 +9,7 @@ import java.util.Date;
  * @Author: Mångata
  * @Email:1787506199a@gmail.com
  * @create 2021-03-02 16:16
+ * 科室信息
  */
 @Data
 public class Department {
@@ -19,6 +20,14 @@ public class Department {
     private Date createTime;
     @ApiModelProperty("更新时间")
     private Date updateTime;
+
+    public interface Table {
+        String ID = "id";
+        String DEPARTMENTNAME = "departmentName";
+        String PID = "pid";
+        String CREATE_TIME = "create_time";
+        String UPDATE_TIME = "update_time";
+    }
 
 
 }

@@ -59,7 +59,7 @@ public class AdminRegistrationController {
     @ApiOperation("批量删除挂号")
     @PreAuthorize("hasAuthority('sys:registration:delete')")
     @DeleteMapping
-    public JsonResult removeBatch(@NotEmpty @RequestBody List<Integer> idList) {
+    public JsonResult removeBatch(@NotEmpty @RequestBody List<Long> idList) {
         registrationService.removeByIdList(idList);
         return JsonResult.ok();
     }
@@ -69,6 +69,7 @@ public class AdminRegistrationController {
     @PreAuthorize("hasAuthority('sys:registration:transfer')")
     @PutMapping("/transfer")
     public JsonResult changeStatus(@RequestBody Registration registration){
+        registration.setStatus(4);
         registrationService.changeStatus(registration);
         return JsonResult.ok();
     }
