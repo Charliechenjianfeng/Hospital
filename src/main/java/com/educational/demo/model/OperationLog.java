@@ -69,13 +69,13 @@ public class OperationLog implements Serializable {
 
     public interface Table {
         String ID = "id";
-        String CREATE_TIME = "create_time";
+        String CREATE_TIME = "createTime";
         String DESCRIPTION = "description";
         String EXCEPTION_DETAIL = "exception_detail";
         String LOG_TYPE = "log_type";
         String METHOD = "method";
         String PARAMS = "params";
-        String REQUEST_IP = "request_ip";
+        String REQUEST_IP = "requestIp";
         String TIME = "time";
         String USERNAME = "username";
         String BROWSER = "browser";

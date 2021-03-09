@@ -50,7 +50,18 @@ public interface RegistrationMapper extends BaseMapper<Registration> {
      */
     void transfer(Long registrationId, Integer status);
 
+    /**
+     *根据id查找对象
+     * @param id 挂号id
+     * @return 挂号对象
+     */
+    Registration selectById(Integer id);
 
 
+    /**
+     * 更新
+     * @param registration
+     */
+    void updateRegistration(Registration registration);
 
 }

@@ -15,5 +15,5 @@ public interface DoctorService {
      * 根据部门和挂号类型列出相应的医生
      * @return 医生列表
      */
-    List<Doctor> ListByDptIdandTypeId();
+    List<Doctor> ListByDptIdandTypeId(Integer departmentId, Integer typeId);
 }

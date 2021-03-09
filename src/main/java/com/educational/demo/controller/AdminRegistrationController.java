@@ -5,6 +5,7 @@ import com.educational.demo.common.Constant;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Registration;
+import com.educational.demo.model.User;
 import com.educational.demo.query.RegistrationQuery;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.service.RegistrationService;
@@ -13,10 +14,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +33,7 @@ import java.util.List;
 public class AdminRegistrationController {
     @Autowired
     private RegistrationService registrationService;
+
 
     @ApiOperation("查询挂号信息")
     @PreAuthorize("hasAuthority('sys:registration:query')")
@@ -69,10 +73,42 @@ public class AdminRegistrationController {
     @PreAuthorize("hasAuthority('sys:registration:transfer')")
     @PutMapping("/transfer")
     public JsonResult changeStatus(@RequestBody Registration registration){
-        registration.setStatus(4);
+        registration.setRstatus(4);
         registrationService.changeStatus(registration);
         return JsonResult.ok();
     }
+
+
+    @ApiOperation("新增挂号")
+    @PreAuthorize("hasAuthority('sys:registration:add')")
+    @PostMapping
+    public JsonResult save(@Validated @RequestBody Registration registration) {
+        if (registration.getRstatus() == null){
+            registration.setRstatus(1);
+        }
+
+        AccessLogAspect accessLogAspect = new AccessLogAspect();
+        registration.setCreateMan(accessLogAspect.getNickname());
+        registration.setCreateTime(new Date());
+        registration.setUpdateTime(registration.getCreateTime());
+        registrationService.saveOfUpdate(registration);
+        return JsonResult.ok();
+    }
+
+    @ApiOperation("更新挂号")
+    @PreAuthorize("hasAuthority('sys:registration:edit')")
+    @PutMapping
+    public JsonResult update(@Validated @RequestBody Registration registration){
+        AccessLogAspect accessLogAspect = new AccessLogAspect();
+        registration.setCreateMan(accessLogAspect.getNickname());
+        registration.setUpdateTime(new Date());
+        registrationService.saveOfUpdate(registration);
+        return JsonResult.ok();
+    }
+
+
+
+
 
 
 

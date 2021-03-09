@@ -61,4 +61,11 @@ public interface RegistrationService {
      * @param registration 挂号
      */
     void changeStatus(Registration registration);
+
+    /**
+     * 提供编辑使用
+     * @param id 挂号id
+     * @return 该id的对象
+     */
+    Registration selectById(Long id);
 }

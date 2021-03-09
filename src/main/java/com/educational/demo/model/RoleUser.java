@@ -27,7 +27,7 @@ public class RoleUser implements Serializable {
     private Long userId;
 
     public interface Table {
-        String ROLE_ID = "role_id";
-        String USER_ID = "user_id";
+        String ROLE_ID = "roleId";
+        String USER_ID = "userId";
     }
 }

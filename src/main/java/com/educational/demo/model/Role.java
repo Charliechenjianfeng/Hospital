@@ -67,12 +67,12 @@ public class Role implements Serializable {
 
     public interface Table {
         String ID = "id";
-        String ROLE_NAME = "role_name";
+        String ROLE_NAME = "roleName";
         String DESCRIPTION = "description";
         String RANK = "rank1";
         String COLOR = "color";
         String STATUS = "status";
-        String CREATE_TIME = "create_time";
-        String UPDATE_TIME = "update_time";
+        String CREATE_TIME = "createTime";
+        String UPDATE_TIME = "updateTime";
     }
 }

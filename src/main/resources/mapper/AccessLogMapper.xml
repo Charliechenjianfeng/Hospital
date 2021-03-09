@@ -5,16 +5,16 @@
         <id property="id" column="id"/>
         <result property="description" column="description"/>
         <result property="exceptionDetail" column="exception_detail"/>
-        <result property="logType" column="log_type"/>
+        <result property="logType" column="logType"/>
         <result property="method" column="method"/>
         <result property="params" column="params"/>
-        <result property="requestIp" column="request_ip"/>
+        <result property="requestIp" column="requestIp"/>
         <result property="time" column="time"/>
         <result property="username" column="username"/>
         <result property="browser" column="browser"/>
         <result property="address" column="address"/>
         <result property="status" column="status"/>
-        <result property="createTime" column="create_time"/>
+        <result property="createTime" column="createTime"/>
     </resultMap>
 
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">

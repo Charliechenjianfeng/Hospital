@@ -1,5 +1,8 @@
 package com.educational.demo.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.models.auth.In;
@@ -17,23 +20,28 @@ import java.util.Date;
 @Data
 @TableName("registration")
 public class Registration implements Serializable {
+    @TableId(type = IdType.AUTO)
     private Long registrationId;
     private String patientName;
-    private Integer sex;
+    private Boolean sex;
     private Integer age;
     private Integer departmentId;
     private Integer doctorId;
     private Integer typeId;
     private Double price;
-    private String user;
-    private Integer status;
+    private String createMan;
+    private Integer rstatus;
     private String phone;
     private String idCard;
-    private String describe;
+    private String rDescribe;
     private Date createTime;
     private Date updateTime;
+
+    @TableField(exist = false)
     private Doctor doctor;
+    @TableField(exist = false)
     private Department department;
+    @TableField(exist = false)
     private RegistrationType registrationType;
 
     public interface Table {
@@ -45,8 +53,8 @@ public class Registration implements Serializable {
         String EMAIL = "email";
         String PHONE = "phone";
         String IDCARD = "idCard";
-        String CREATE_TIME = "create_time";
-        String UPDATE_TIME = "update_time";
+        String CREATE_TIME = "createTime";
+        String UPDATE_TIME = "updateTime";
     }
 
 

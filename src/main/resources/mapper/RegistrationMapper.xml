@@ -7,13 +7,13 @@
         <result property="sex" column="sex"/>
         <result property="age" column="age"/>
         <result property="price" column="price"/>
-        <result property="user" column="user"/>
-        <result property="status" column="status"/>
+        <result property="createMan" column="createMan"/>
+        <result property="rstatus" column="rstatus"/>
         <result property="phone" column="phone"/>
         <result property="idCard" column="idCard"/>
-        <result property="describe" column="describe"/>
-        <result property="createTime" column="create_time"/>
-        <result property="updateTime" column="update_time"/>
+        <result property="rDescribe" column="describe"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
         <association property="department" javaType="com.educational.demo.model.Department">
             <id property="departmentId" column="departmentId"/>
             <result property="departmentName" column="departmentName"/>
@@ -34,13 +34,13 @@
         <result property="sex" column="sex"/>
         <result property="age" column="age"/>
         <result property="price" column="price"/>
-        <result property="user" column="user"/>
-        <result property="status" column="status"/>
+        <result property="createMan" column="createMan"/>
+        <result property="rStatus" column="rStatus"/>
         <result property="phone" column="phone"/>
         <result property="idCard" column="idCard"/>
-        <result property="describe" column="describe"/>
-        <result property="createTime" column="create_time"/>
-        <result property="updateTime" column="update_time"/>
+        <result property="rDescribe" column="describe"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
         <association property="department" javaType="com.educational.demo.model.Department">
             <id property="departmentId" column="departmentId"/>
             <result property="departmentName" column="departmentName"/>
@@ -56,13 +56,13 @@
     </resultMap>
 
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
-        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.user, re.status, re.phone, re.idCard, re.describe, re.create_time, re.update_time,
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rDescribe, re.createTime, re.updateTime,
         dm.departmentName, dt.doctorName, rt.type
         from registration re
         left join department dm on re.departmentId = dm.departmentId
         left join doctor dt on re.doctorId = dt.doctorId
         left join registrationType rt on re.typeId = rt.typeId
-        where re.status =1
+        where re.rStatus =1
         <if test="ew != null and ew.emptyOfWhere == false">
             ${ew.customSqlSegment}
         </if>
@@ -70,12 +70,12 @@
     </select>
 
     <select id="listTableById" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
-        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.user, re.status, re.phone, re.idCard, re.describe, re.create_time, re.update_time,
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rDescribe, re.createTime, re.updateTime,
         dm.departmentName, dt.doctorName, rt.type
         from registration re left join department dm on re.departmentId = dm.departmentId
         left join doctor dt on re.doctorId = dt.doctorId
         left join registrationType rt on re.typeId = rt.typeId
-        where dt.doctorId = #{id} and re.status=1
+        where dt.doctorId = #{id} and re.rStatus=1
         <if test="ew != null and ew.emptyOfWhere == false">
             ${ew.customSqlSegment}
         </if>
@@ -87,6 +87,15 @@
     </delete>
 
     <update id="transfer">
-        update registration re SET re.status = #{status} where re.registrationId = #{registrationId}
+        update registration re SET re.rstatus = #{status} where re.registrationId = #{registrationId}
+    </update>
+
+    <select id="selectById" resultType="com.educational.demo.model.Registration">
+        select re.registrationId, re.sex, re.age, re.idCard, re.phone, re.patientName, re.price, re.rstatus  from registration re where re.registrationId=#{id}
+    </select>
+
+    <update id="updateRegistration" parameterType="com.educational.demo.model.Registration">
+        update registration set patientName = #{patientName}, sex=#{sex}, age = #{age} ,departmentId=#{departmentId}, doctorId = #{doctorId}, typeId = #{typeId}, price=#{price},
+                                createMan = #{createMan}, phone = #{phone}, idCard=#{idCard}, updateTime=#{updateTime} where registrationId = #{registrationId}
     </update>
 </mapper>

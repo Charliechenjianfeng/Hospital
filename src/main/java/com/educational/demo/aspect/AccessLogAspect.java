@@ -87,4 +87,16 @@ public class AccessLogAspect {
         }
         return "";
     }
+
+
+    public String getNickname(){
+        HttpServletRequest request = RequestHolder.getHttpServletRequest();
+        HttpSession session = request.getSession();
+        Object o = session.getAttribute("user");
+        if (o != null) {
+            User user = (User) o;
+            return user.getNickname();
+        }
+        return "";
+    }
 }

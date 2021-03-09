@@ -9,20 +9,20 @@
         <result property="email" column="email"/>
         <result property="phone" column="phone"/>
         <result property="status" column="status"/>
-        <result property="createTime" column="create_time"/>
-        <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
         <association property="role" javaType="com.educational.demo.model.Role">
             <id property="id" column="rid"/>
-            <result property="roleName" column="role_name"/>
+            <result property="roleName" column="roleName"/>
             <result property="color" column="color"/>
         </association>
     </resultMap>
 
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
-        select su.id, su.username, su.nickname, su.sex, su.email, su.phone, su.status, su.create_time, su.update_time,
-        sr.id as rid, sr.role_name, sr.color
-        from sys_user su left join sys_role_user sru on su.id = sru.user_id
-        left join sys_role sr on sru.role_id = sr.id
+        select su.id, su.username, su.nickname, su.sex, su.email, su.phone, su.status, su.createTime, su.updateTime,
+        sr.id as rid, sr.roleName, sr.color
+        from sys_user su left join sys_role_user sru on su.id = sru.userId
+        left join sys_role sr on sru.roleId = sr.id
         <if test="ew != null and ew.emptyOfWhere == false">
             ${ew.customSqlSegment}
         </if>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.UnitsMapper">
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Units">
+        <result property="unitsId" column="unitsId"/>
+        <result property="unitsName" column="unitsName"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+    </resultMap>
+
+    <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select * from units u
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+        order by u.unitsId
+
+    </select>
+</mapper>

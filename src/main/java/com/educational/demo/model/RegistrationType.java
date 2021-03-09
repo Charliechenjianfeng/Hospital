@@ -21,8 +21,8 @@ public class RegistrationType {
     String TYPEID = "typeId";
     String TYPE = "type";
     String PRICE= "price";
-    String CREATE_TIME = "create_time";
-    String UPDATE_TIME = "update_time";
+    String CREATE_TIME = "createTime";
+    String UPDATE_TIME = "updateTime";
     }
 
 }

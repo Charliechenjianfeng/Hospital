@@ -31,6 +31,12 @@ public class AdminRouteController {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private RegistrationService registrationService;
+
+    @Autowired
+    private UnitsService unitsService;
+
 
     @ApiOperation("页面路由")
     @GetMapping("/page/{moduleName}/{pageName}")
@@ -71,7 +77,16 @@ public class AdminRouteController {
     @PreAuthorize("hasAuthority('sys:registration:edit')")
     @GetMapping("/registration/{id}")
     public String editRegistration(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("registration", roleService.getById(id));
+        model.addAttribute("registration", registrationService.selectById(id));
         return "admin/outpatient/registration-edit";
+    }
+
+
+    @ApiOperation("更新单位页面")
+    @PreAuthorize("hasAuthority('sys:units:edit')")
+    @GetMapping("/units/{id}")
+    public String editUnits(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("units", unitsService.getById(id));
+        return "admin/units/units-edit";
     }
 }

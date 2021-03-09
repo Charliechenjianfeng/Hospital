@@ -83,7 +83,7 @@ public class Menu implements Serializable {
         String STATUS = "status";
         String REMARK = "remark";
         String TARGET = "target";
-        String CREATE_TIME = "create_time";
-        String UPDATE_TIME = "update_time";
+        String CREATE_TIME = "createTime";
+        String UPDATE_TIME = "updateTime";
     }
 }

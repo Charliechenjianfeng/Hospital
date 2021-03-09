@@ -9,6 +9,7 @@ public interface TableConstant {
     String CATE_ALIAS = "tc.";
     String TAG_ALIAS = "tt.";
     String REGISTRATION_ALIAS = "re";
+    String UNITS_ALIAS = "u";
 
     String LIMIT = "limit ";
 

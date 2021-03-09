@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.common.TableConstant;
 import com.educational.demo.dao.RegistrationMapper;
+import com.educational.demo.exception.EntityExistException;
 import com.educational.demo.model.Registration;
+import com.educational.demo.model.User;
 import com.educational.demo.query.RegistrationQuery;
 import com.educational.demo.service.RegistrationService;
 import com.educational.demo.util.StringUtils;
@@ -59,7 +61,32 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void saveOfUpdate(Registration registration) {
+        QueryWrapper<Registration> wrapper = new QueryWrapper<>();
+        if (registration.getRegistrationId() == null){
+            //判断手机号是否唯一
+            wrapper.eq(Registration.Table.PHONE, registration.getPhone());
+            if (null != registrationMapper.selectOne(wrapper)){
+                throw new EntityExistException("挂号", "电话", registration.getPhone());
+            }
+            wrapper.clear();
+            wrapper.eq(Registration.Table.IDCARD, registration.getIdCard());
+            if (null != registrationMapper.selectOne(wrapper)){
+                throw new EntityExistException("挂号","身份证",registration.getIdCard());
+            }
+            registrationMapper.insert(registration);
+        } else {
+//            wrapper.eq(Registration.Table.PHONE, registration.getPhone());
+////            if (null != registrationMapper.selectOne(wrapper)){
+////                throw new EntityExistException("挂号", "电话", registration.getPhone());
+////            }
+////            wrapper.clear();
+////            wrapper.eq(Registration.Table.IDCARD, registration.getIdCard());
+////            if (null != registrationMapper.selectOne(wrapper)){
+////                throw new EntityExistException("挂号","身份证",registration.getIdCard());
+////            }
 
+            registrationMapper.updateById(registration);
+        }
     }
 
     @Override
@@ -78,8 +105,14 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public void changeStatus(Registration registration) {
         Long registrationId = registration.getRegistrationId();
-        Integer status = registration.getStatus();
+        Integer status = registration.getRstatus();
         registrationMapper.transfer(registrationId,status);
     }
+
+    @Override
+    public Registration selectById(Long id) {
+        return registrationMapper.selectById(id);
+    }
+
 
 }

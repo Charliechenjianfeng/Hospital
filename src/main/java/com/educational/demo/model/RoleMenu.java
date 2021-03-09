@@ -27,7 +27,7 @@ public class RoleMenu implements Serializable {
     private Long menuId;
 
     public interface Table {
-        String ROLE_ID = "role_id";
-        String MENU_ID = "menu_id";
+        String ROLE_ID = "roleId";
+        String MENU_ID = "menuId";
     }
 }
