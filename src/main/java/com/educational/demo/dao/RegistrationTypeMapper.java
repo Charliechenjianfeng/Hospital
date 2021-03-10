@@ -1,7 +1,12 @@
 package com.educational.demo.dao;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.model.Registration;
 import com.educational.demo.model.RegistrationType;
+import com.educational.demo.query.RegistrationTypeQuery;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -27,4 +32,12 @@ public interface RegistrationTypeMapper extends BaseMapper<RegistrationType> {
      * @return Double类型的价格
      */
     Double listPriceById(@Param("id") Integer id);
+
+    /**
+     *
+     * @param page 页面参数
+     * @param queryWrapper 查询调价
+     * @return 分页后的数据
+     */
+    Page<RegistrationType> listTableByPage(IPage<RegistrationType> page, @Param("ew") QueryWrapper<RegistrationType> queryWrapper);
 }

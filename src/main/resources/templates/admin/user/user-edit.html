@@ -130,9 +130,6 @@
                 if (/(^\_)|(\__)|(\_+$)/.test(value)) {
                     return '用户名首尾不能出现下划线\'_\'';
                 }
-                if (/^\d+\d+\d$/.test(value)) {
-                    return '用户名不能全为数字';
-                }
             },
             //验证昵称
             nickname: function (value) { //value：表单的值、item：表单的DOM对象

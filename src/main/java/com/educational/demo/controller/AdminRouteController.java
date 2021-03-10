@@ -1,6 +1,7 @@
 package com.educational.demo.controller;
 
 import com.educational.demo.common.JsonResult;
+import com.educational.demo.model.Department;
 import com.educational.demo.model.Role;
 import com.educational.demo.service.*;
 import io.swagger.annotations.Api;
@@ -36,6 +37,12 @@ public class AdminRouteController {
 
     @Autowired
     private UnitsService unitsService;
+
+    @Autowired
+    private RegistrationTypeService registrationTypeService;
+
+    @Autowired
+    private DepartmentService departmentService;
 
 
     @ApiOperation("页面路由")
@@ -88,5 +95,21 @@ public class AdminRouteController {
     public String editUnits(@PathVariable("id") Long id, Model model) {
         model.addAttribute("units", unitsService.getById(id));
         return "admin/units/units-edit";
+    }
+
+    @ApiOperation("更新类型页面")
+    @PreAuthorize("hasAuthority('sys:registration:edit')")
+    @GetMapping("/registrationType/{id}")
+    public String editRegistrationType(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("registrationType",registrationTypeService.getById(id));
+        return "admin/registrationType/registrationType-edit";
+    }
+
+    @ApiOperation("更新类型页面")
+    @PreAuthorize("hasAuthority('sys:department:edit')")
+    @GetMapping("/department/{id}")
+    public String editDepartment(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("department",departmentService.selectById(id));
+        return "admin/department/department-edit";
     }
 }

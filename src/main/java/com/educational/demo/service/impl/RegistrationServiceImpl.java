@@ -6,14 +6,17 @@ import com.educational.demo.common.TableConstant;
 import com.educational.demo.dao.RegistrationMapper;
 import com.educational.demo.exception.EntityExistException;
 import com.educational.demo.model.Registration;
+import com.educational.demo.model.Role;
 import com.educational.demo.model.User;
 import com.educational.demo.query.RegistrationQuery;
 import com.educational.demo.service.RegistrationService;
 import com.educational.demo.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: Mångata
@@ -75,15 +78,20 @@ public class RegistrationServiceImpl implements RegistrationService {
             }
             registrationMapper.insert(registration);
         } else {
-//            wrapper.eq(Registration.Table.PHONE, registration.getPhone());
-////            if (null != registrationMapper.selectOne(wrapper)){
-////                throw new EntityExistException("挂号", "电话", registration.getPhone());
-////            }
-////            wrapper.clear();
-////            wrapper.eq(Registration.Table.IDCARD, registration.getIdCard());
-////            if (null != registrationMapper.selectOne(wrapper)){
-////                throw new EntityExistException("挂号","身份证",registration.getIdCard());
-////            }
+            QueryWrapper<Registration> registrationWrapper = new QueryWrapper<>();
+            registrationWrapper.eq(Registration.Table.PATIENTNAME, registration.getPatientName());
+            List<Registration> registrations = registrationMapper.selectList(registrationWrapper);
+            registrations = registrations.stream().filter(r -> !r.getPhone().equals(registration.getPhone())).collect(Collectors.toList());
+            if (!CollectionUtils.isEmpty(registrations)) {
+                throw new EntityExistException("电话号码：" + registration.getPhone() + "已存在");
+            }
+            registrationWrapper.clear();
+            registrationWrapper.eq(Registration.Table.IDCARD,  registration.getIdCard());
+            List<Registration> registrations1 = registrationMapper.selectList(registrationWrapper);
+            registrations1 = registrations1.stream().filter(r -> !r.getIdCard().equals(registration.getIdCard())).collect(Collectors.toList());
+            if (!CollectionUtils.isEmpty(registrations1)) {
+                throw new EntityExistException("身份证：" + registration.getIdCard() + "已存在");
+            }
 
             registrationMapper.updateById(registration);
         }

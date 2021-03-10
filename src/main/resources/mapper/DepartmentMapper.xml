@@ -11,5 +11,8 @@
         select d.departmentId,d.departmentName from department d where d.pid = #{id}
     </select>
 
+    <delete id="deleteByPid">
+        delete from department where pid = #{id}
+    </delete>
 
 </mapper>

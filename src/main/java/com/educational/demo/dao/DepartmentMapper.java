@@ -28,6 +28,10 @@ public interface DepartmentMapper extends BaseMapper<Department> {
      */
     List<Department> listByPid(@Param("id") Integer id);
 
-
+    /**
+     * 根据父id删除
+     * @param id id
+     */
+    void deleteByPid(@Param("id") Integer id);
 
 }

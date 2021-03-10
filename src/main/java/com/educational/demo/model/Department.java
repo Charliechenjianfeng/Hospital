@@ -1,5 +1,7 @@
 package com.educational.demo.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -13,6 +15,7 @@ import java.util.Date;
  */
 @Data
 public class Department {
+    @TableId(type = IdType.AUTO)
     private Integer departmentId;
     private String departmentName;
     private Integer pid;
@@ -22,7 +25,7 @@ public class Department {
     private Date updateTime;
 
     public interface Table {
-        String ID = "id";
+        String ID = "departmentId";
         String DEPARTMENTNAME = "departmentName";
         String PID = "pid";
         String CREATE_TIME = "createTime";

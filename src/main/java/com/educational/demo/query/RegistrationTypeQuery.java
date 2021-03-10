@@ -7,18 +7,13 @@ import lombok.Data;
 /**
  * @Author: Mångata
  * @Email:1787506199a@gmail.com
- * @create 2021-03-02 15:03
- * 挂号页面查询
+ * @create 2021-03-10 0:17
  */
-@ApiModel("挂号查询条件")
+@ApiModel("挂号类型查询")
 @Data
-public class RegistrationQuery {
-
-    @ApiModelProperty("名称")
-    private String patientName;
-
-    @ApiModelProperty("电话号码")
-    private String phone;
+public class RegistrationTypeQuery {
+    @ApiModelProperty("类型名")
+    private String type;
 
     @ApiModelProperty("开始创建日期")
     private String startDate;
