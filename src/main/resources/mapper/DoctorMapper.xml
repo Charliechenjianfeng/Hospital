@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.educational.demo.dao.DoctorMapper">
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Doctor">
+        <result property="doctorId" column="doctorId"/>
+        <result property="doctorName" column="doctorName"/>
+        <result property="age" column="age"/>
+        <result property="phone" column="phone"/>
+        <result property="sex" column="sex"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+        <association property="department" javaType="com.educational.demo.model.Department">
+            <id property="departmentId" column="departmentId"/>
+            <result property="departmentName" column="departmentName"/>
+        </association>
+        <association property="registrationType" javaType="com.educational.demo.model.RegistrationType">
+            <id property="typeId" column="typeId"/>
+            <result property="type" column="type"/>
+        </association>
+    </resultMap>
 
 
     <select id="ListByDptIdandTypeId" resultType="com.educational.demo.model.Doctor">
         select d.doctorId, d.doctorName from doctor d where d.departmentId = #{departmentId} and d.typeId = #{typeId}
     </select>
+
+    <select id="listTableByPage" resultMap="tableResultMap">
+        select dt.doctorId, dt.doctorName, dt.age, dt.phone, dt.sex, dt.createTime, dt.updateTime, d.departmentName, r.type from doctor dt
+        left join department d on dt.departmentId = d.departmentId
+        left join registrationType r on dt.typeId = r.typeId
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+    order by dt.doctorId
+    </select>
+
 </mapper>

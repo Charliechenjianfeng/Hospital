@@ -1,7 +1,11 @@
 package com.educational.demo.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.common.JsonResult;
+import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Doctor;
+import com.educational.demo.model.User;
+import com.educational.demo.query.DoctorQuery;
 import com.educational.demo.service.DoctorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,6 +35,16 @@ public class AdminDoctorController {
     public JsonResult listAll(@RequestParam(required = false) Integer  departmentId,
                               @RequestParam(required = false) Integer typeId) {
         return JsonResult.ok(doctorService.ListByDptIdandTypeId(departmentId,typeId));
+    }
+
+    @ApiOperation("查询所有医生")
+    @PreAuthorize("hasAuthority('sys:doctor:query')")
+    @GetMapping
+    public JsonResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
+                                 DoctorQuery doctorQuery) {
+        Page<Doctor> pageInfo = doctorService.listTableByPage(page, limit, doctorQuery);
+        return TableResult.tableOk(pageInfo.getRecords(), pageInfo.getTotal());
     }
 
 }
