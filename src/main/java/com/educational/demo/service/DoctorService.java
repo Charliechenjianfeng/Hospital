@@ -44,4 +44,18 @@ public interface DoctorService {
      * @param idList 医生idList
      */
     void deleteByIdList(List<Integer> idList);
+
+
+    /**
+     * 更新或者保存医生
+     * @param doctor 医生对象
+     */
+    void saveOrUpdate(Doctor doctor);
+
+    /**
+     * 编辑需要查找
+     * @param Id 医生id
+     * @return 医生对象
+     */
+    Doctor selectById(Integer Id);
 }

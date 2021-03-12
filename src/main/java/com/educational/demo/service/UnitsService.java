@@ -46,4 +46,10 @@ public interface UnitsService {
      * @return 单位对象
      */
     Units getById(Long id);
+
+    /**
+     * 列出所有的单位
+     * @return
+     */
+    List<Units> listAll();
 }

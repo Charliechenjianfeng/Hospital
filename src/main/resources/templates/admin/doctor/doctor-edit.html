@@ -1,281 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>医生信息</title>
+    <title>编辑医生</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/static/admin/layuimini/lib/layui-v2.5.5/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/admin/layuimini/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-<div class="layuimini-container">
-    <div class="layuimini-main">
-        <fieldset class="table-search-fieldset" permission="sys:registrationType:query">
-            <legend>搜索信息</legend>
-            <div style="margin: 10px 10px 10px 10px">
-                <form class="layui-form layui-form-pane" action="">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">医生名</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="doctorName" autocomplete="off" class="layui-input"
-                                       placeholder="不输入则忽略类型名筛选">
-                            </div>
-                        </div>
+<form class="layui-form layuimini-form">
+    <input type="hidden" name="doctorId"/>
 
-                        <div class="layui-form-item">
-                            <div class="layui-inline">
-                                <label class="layui-form-label">手机号</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" name="phone" autocomplete="off" class="layui-input"
-                                           placeholder="不输入则忽略类型名筛选">
-                                </div>
-                            </div>
-
-                            <div class="layui-inline">
-                                <label class="layui-form-label">日期范围</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" class="layui-input" id="date-range" placeholder="不输入则忽略日期范围筛选"
-                                           name="dateRange">
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <button type="submit" class="layui-btn layui-btn-primary" lay-submit
-                                        lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
-                                </button>
-                                <button type="reset" class="layui-btn layui-btn-primary"><i
-                                        class="layui-icon layui-icon-fonts-clear"></i> 清 空
-                                </button>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </fieldset>
-
-        <script type="text/html" id="toolbarDemo">
-            <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-sm data-add-btn" lay-event="add" permission="sys:doctor:add">添加类型
-                </button>
-                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"
-                        permission="sys:doctor:delete">批量删除
-                </button>
-            </div>
-        </script>
-
-        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-
-        <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit" permission="sys:doctor:edit">编辑</a>
-            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete"
-               permission="sys:doctor:delete">删除</a>
-        </script>
-
+    <div class="layui-form-item">
+        <label class="layui-form-label required">医生名</label>
+        <div class="layui-input-block">
+            <input type="text" name="doctorName" lay-verify="required|doctorName" lay-reqtext="医生名不能为空" placeholder="请输入医生名"
+                   value=""
+                   class="layui-input">
+        </div>
     </div>
-</div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="true" title="男" checked="">
+            <input type="radio" name="sex" value="false" title="女">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">手机</label>
+        <div class="layui-input-block">
+            <input type="number" name="phone" lay-verify="required|phone" lay-reqtext="手机不能为空" placeholder="请输入手机"
+                   value=""
+                   class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">年龄</label>
+        <div class="layui-input-block">
+            <input type="number" name="age" lay-verify="required|age" lay-reqtext="年龄不能为空" placeholder="请输入年龄"
+                   value=""
+                   class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">主科室</label>
+        <div class="layui-input-inline">
+            <select  name="departmentPId" lay-search id="departmentPId-select" lay-verify="department1"  lay-filter= "mainDepartment" lay-reqtext="科室不能为空" >
+                <option value="" selected>请选主科室</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">分科室</label>
+        <div class="layui-input-inline">
+            <select name="departmentId" lay-search id="department-select" lay-verify="department" lay-filter= "branchDepartment" lay-reqtext="科室不能为空">
+                <option value="" selected>请选择分科室</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">医生类型</label>
+        <div class="layui-input-inline">
+            <select  name="typeId" lay-search id="type-select" lay-verify="type"  lay-filter= "type" lay-reqtext="类型不能为空" >
+                <option value="" selected>请选类型</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="saveBtn">确认修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
 <script src="/static/admin/layuimini/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-<script src="/static/admin/layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
-<script src="/static/admin/my/js/my.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
-<script>
-    layui.use(['form', 'table', 'laydate'], function () {
-        var $ = layui.jquery,
-            form = layui.form,
-            table = layui.table,
-            laydate = layui.laydate;
+<script th:inline="javascript" type="text/javascript">
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
 
-        //日期范围
-        laydate.render({
-            elem: '#date-range',
-            range: '~',
-            theme: 'molv'
-        });
+        var doctor = [[${doctor}]];
+        $('.layui-form input[name="doctorId"]').val(doctor.doctorId);
+        $('.layui-form input[name="doctorName"]').val( doctor.doctorName);
+        $('.layui-form input[name="age"]').val( doctor.age);
+        $('.layui-form input[name="sex"]').val([doctor.sex]);
+        $('.layui-form input[name="phone"]').val( doctor.phone);;
+        // var description = "";
+        // for(var i in registration){
+        //     var property=registration[i];
+        //     description+=i+" = "+property+"\n";
+        // }
+        // alert(description);
+        form.render();
 
-        table.render({
-            elem: '#currentTableId',
-            url: '/admin/doctor',
-            toolbar: '#toolbarDemo',
-            defaultToolbar: ['filter', 'exports', 'print', {
-                title: '提示',
-                layEvent: 'LAYTABLE_TIPS',
-                icon: 'layui-icon-tips'
-            }],
-            cols: [
-                [
-                    {type: "checkbox", width: 50, fixed: "left"},
-                    {field: 'doctorId', width: 80, title: 'ID', sort: true},
-                    {field: 'doctorName', width: 150, title: '医生名', sort: true},
-                    {field: 'age', width: 80, title: '年龄', sort: true},
-                    {field: 'createTime', title: '创建时间', minWidth: 200, sort: true},
-                    {field: 'updateTime', title: '更新时间', minWidth: 200, sort: true},
-                    {
-                        title: '操作',
-                        minWidth: 200,
-                        toolbar: '#currentTableBar',
-                        fixed: "right",
-                        align: "center",
-                        hide: (!hasPermission('sys:doctor:edit') && !hasPermission('sys:doctor:delete'))
-                    }
-                ]
-            ],
-            limits: [10, 15, 20, 25, 50, 100],
-            limit: 15,
-            page: true,
-            done: function () {
-                checkPermission();
+        //获取科室列表
+        $.ajax({
+            url: '/admin/department/list',
+            type: 'GET',
+            success: function (result) {
+                if (result.code === 200) {
+                    $.each(result.data, function () {
+                        var departmentId = $(this)[0].departmentId;
+                        var departmentName = $(this)[0].departmentName;
+                        var categoryOption = $('<option></option>').val(departmentId).text(departmentName);
+                        $('#departmentPId-select').append(categoryOption);
+                    });
+                    form.render("select");//重新渲染 固定写法
+                }
             }
         });
 
-        // 监听搜索操作
-        form.on('submit(data-search-btn)', function (data) {
-            let type = data.field.type;
-            let dateRange = data.field.dateRange;
-            let dates = dateRange.split(' ~ ');
-            let startDate = dates[0];
-            let endDate = dates[1];
-
-            //执行搜索重载
-            table.reload('currentTableId', {
-                page: {
-                    curr: 1
+        //获取挂号类型
+        $.ajax({
+            url: '/admin/registrationType/list',
+            type: 'GET',
+            success: function (result) {
+                if (result.code === 200) {
+                    $.each(result.data, function () {
+                        var typeId = $(this)[0].typeId;
+                        var typeName = $(this)[0].type;
+                        var categoryOption = $('<option></option>').val(typeId).text(typeName);
+                        $('#type-select').append(categoryOption);
+                    });
+                    form.render("select");//重新渲染 固定写法
                 }
-                , where: {
-                    type: type,
-                    startDate: startDate,
-                    endDate: endDate
-                }
-            }, 'data');
-
-            return false;
-        });
-
-
-        /**
-         * toolbar监听事件
-         */
-        table.on('toolbar(currentTableFilter)', function (obj) {
-            if (obj.event === 'add') {  // 监听添加操作
-                var index = layer.open({
-                    title: '挂号类型',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin: true,
-                    shadeClose: true,
-                    area: ['50%', '90%'],
-                    content: '/admin/page/registrationType/registrationType-add',
-                });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
-            } else if (obj.event === 'delete') {  // 监听删除操作
-                var checkStatus = table.checkStatus('currentTableId')
-                    , data = checkStatus.data;
-                var idList = [];
-                $.each(data, function () {
-                    let id = $(this)[0].typeId;
-                    idList.push(id);
-                });
-                if (idList.length <= 0) {
-                    return false;
-                }
-                Swal.fire({
-                    title: '确定删除选中的' + idList.length + '个挂号类型吗？',
-                    text: '你将无法恢复它！',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '确定删除！',
-                    cancelButtonText: '取消删除！',
-                    showLoaderOnConfirm: true,
-                    preConfirm: () => {
-                        return new Promise((resolve, reject) => {
-                            axios({
-                                method: 'delete',
-                                url: '/admin/registrationType',
-                                data: idList,
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
-                                .then(response => {
-                                    table.reload('currentTableId');
-                                    resolve(response.data);
-                                }, error => {
-                                    reject(error);
-                                })
-                        }).then(res => {
-                            Swal.fire({
-                                icon: 'success',
-                                title: '删除成功！',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }).catch(error => {
-                            Swal.showValidationMessage(`删除失败: ${error.response.data.message}`);
-                        })
-                    }
-                });
             }
         });
 
-        table.on('tool(currentTableFilter)', function (obj) {
-            var data = obj.data;
-            if (obj.event === 'edit') {
-                var index = layer.open({
-                    title: '编辑挂号',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin: true,
-                    shadeClose: true,
-                    area: ['50%', '90%'],
-                    content: '/admin/registrationType/' + data.typeId,
-                });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
+        //获取分科室列表
+        form.on('select(mainDepartment)', function(data){
+            var departmentId = data.value;
+            if (departmentId===''){
                 return false;
-            } else if (obj.event === 'delete') {
+            }
+            $.ajax({
+                url: '/admin/department/list/'+departmentId,
+                type: 'GET',
+                success: function (result) {
+                    if (result.code === 200) {
+                        $('#department-select').empty();
+                        $.each(result.data, function () {
+                            var departmentId = $(this)[0].departmentId;
+                            var departmentName = $(this)[0].departmentName;
+                            var categoryOption = $('<option></option>').val(departmentId).text(departmentName);
+                            $('#department-select').append(categoryOption);
+                        });
+                        form.render('select');
+                    }
+                }
+            });
+        });
+
+
+
+        //自定义验证规则
+        form.verify({
+            //验证用户名
+            username: function (value) { //value：表单的值、item：表单的DOM对象
+                if (value.length < 3 || value.length > 16) {
+                    return '用户名长度为3-16个字符'
+                }
+                if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
+                    return '用户名不能有特殊字符';
+                }
+                if (/(^\_)|(\__)|(\_+$)/.test(value)) {
+                    return '用户名首尾不能出现下划线\'_\'';
+                }
+                if (/^\d+\d+\d$/.test(value)) {
+                    return '用户名不能全为数字';
+                }
+            },
+            //验证昵称
+            nickname: function (value) { //value：表单的值、item：表单的DOM对象
+                if (value.length < 3 || value.length > 16) {
+                    return '昵称长度为3-16个字符'
+                }
+                if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
+                    return '昵称不能有特殊字符';
+                }
+                if (/(^\_)|(\__)|(\_+$)/.test(value)) {
+                    return '昵称首尾不能出现下划线\'_\'';
+                }
+                if (/^\d+\d+\d$/.test(value)) {
+                    return '昵称不能全为数字';
+                }
+            },
+            //验证角色
+            role: function (value) {
+                if (null == value || 0 === value.length) {
+                    return '请为用户选择角色';
+                }
+            }
+        });
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            axios({
+                method: 'put',
+                url: '/admin/doctor',
+                data: data.field,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+            }).then((response) => {
                 Swal.fire({
-                    title: '确定删除选中的这个内容吗？',
-                    text: '你将无法恢复它！',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '确定删除！',
-                    cancelButtonText: '取消删除！',
-                    showLoaderOnConfirm: true,
-                    preConfirm: () => {
-                        return new Promise((resolve, reject) => {
-                            axios({
-                                method: 'delete',
-                                url: '/admin/registrationType/' + data.typeId,
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
-                                .then(response => {
-                                    obj.del();
-                                    resolve(response.data);
-                                }, error => {
-                                    reject(error);
-                                })
-                        }).then(res => {
-                            Swal.fire({
-                                icon: 'success',
-                                title: '删除成功！',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }).catch(error => {
-                            Swal.showValidationMessage(`删除失败: ${error.response.data.message}`);
-                        })
+                    icon: 'success',
+                    title: '保存成功',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    onClose: () => {
+                        var parentLayer = parent.layer;
+                        var iframeIndex = parentLayer.getFrameIndex(window.name);
+                        parent.location.reload();
+                        parentLayer.close(iframeIndex);
                     }
                 });
-            }
+            }).catch((error) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: '保存失败！',
+                    text: `${error.response.data.message}`,
+                });
+            })
+            return false;
         });
 
     });

@@ -6,6 +6,7 @@ import com.educational.demo.common.TableConstant;
 import com.educational.demo.dao.UnitsMapper;
 import com.educational.demo.exception.EntityExistException;
 import com.educational.demo.model.Registration;
+import com.educational.demo.model.Role;
 import com.educational.demo.model.Units;
 import com.educational.demo.query.UnitsQuery;
 import com.educational.demo.service.UnitsService;
@@ -68,5 +69,12 @@ public class UnitsServiceImpl implements UnitsService {
     @Override
     public Units getById(Long id) {
       return unitsMapper.selectById(id);
+    }
+
+    @Override
+    public List<Units> listAll() {
+        QueryWrapper<Units> wrapper = new QueryWrapper<>();
+        wrapper.select(Units.Table.UNITSID,Units.Table.UNITSNAME);
+        return unitsMapper.selectList(wrapper);
     }
 }

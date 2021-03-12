@@ -11,6 +11,7 @@ public interface TableConstant {
     String REGISTRATION_ALIAS = "re.";
     String UNITS_ALIAS = "u.";
     String DOCTOR_ALIAS= "dt.";
+    String DRUG_ALIAS = "dg.";
 
     String LIMIT = "limit ";
 

@@ -59,7 +59,7 @@ public class AdminUnitsController {
     }
 
 
-    @ApiOperation("添加挂号")
+    @ApiOperation("添加单位")
     @PreAuthorize("hasAuthority('sys:units:add')")
     @PostMapping
     public JsonResult save(@Validated @RequestBody Units units){
@@ -70,7 +70,7 @@ public class AdminUnitsController {
     }
 
 
-    @ApiOperation("编辑挂号")
+    @ApiOperation("编辑单位")
     @PreAuthorize("hasAuthority('sys:units:edit')")
     @PutMapping
     public JsonResult update(@Validated @RequestBody Units units){
@@ -79,4 +79,12 @@ public class AdminUnitsController {
         return JsonResult.ok();
 
     }
+
+    @ApiOperation("编辑单位")
+    @PreAuthorize("hasAuthority('sys:units:edit')")
+    @GetMapping("/list")
+    public JsonResult listAll(){
+        return JsonResult.ok(unitsService.listAll());
+    }
+
 }

@@ -44,6 +44,12 @@ public class AdminRouteController {
     @Autowired
     private DepartmentService departmentService;
 
+    @Autowired
+    private DoctorService doctorService;
+
+    @Autowired
+    private DrugService drugService;
+
 
     @ApiOperation("页面路由")
     @GetMapping("/page/{moduleName}/{pageName}")
@@ -98,18 +104,34 @@ public class AdminRouteController {
     }
 
     @ApiOperation("更新类型页面")
-    @PreAuthorize("hasAuthority('sys:registration:edit')")
+    @PreAuthorize("hasAuthority('sys:registrationType:edit')")
     @GetMapping("/registrationType/{id}")
     public String editRegistrationType(@PathVariable("id") Integer id, Model model){
         model.addAttribute("registrationType",registrationTypeService.getById(id));
         return "admin/registrationType/registrationType-edit";
     }
 
-    @ApiOperation("更新类型页面")
+    @ApiOperation("更新科室页面")
     @PreAuthorize("hasAuthority('sys:department:edit')")
     @GetMapping("/department/{id}")
     public String editDepartment(@PathVariable("id") Integer id, Model model){
         model.addAttribute("department",departmentService.selectById(id));
         return "admin/department/department-edit";
+    }
+
+    @ApiOperation("更新医生页面")
+    @PreAuthorize("hasAuthority('sys:doctor:edit')")
+    @GetMapping("/doctor/{id}")
+    public String editDoctor(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("doctor",doctorService.selectById(id));
+        return "admin/doctor/doctor-edit";
+    }
+
+    @ApiOperation("更新医生页面")
+    @PreAuthorize("hasAuthority('sys:doctor:edit')")
+    @GetMapping("/drug/{id}")
+    public String editDrug(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("drug",drugService.selectById(id));
+        return "admin/drug/drug-edit";
     }
 }

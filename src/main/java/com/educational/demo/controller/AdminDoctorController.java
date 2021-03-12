@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Doctor;
-import com.educational.demo.model.User;
 import com.educational.demo.query.DoctorQuery;
 import com.educational.demo.service.DoctorService;
 import io.swagger.annotations.Api;
@@ -14,6 +13,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,6 +47,41 @@ public class AdminDoctorController {
                                  DoctorQuery doctorQuery) {
         Page<Doctor> pageInfo = doctorService.listTableByPage(page, limit, doctorQuery);
         return TableResult.tableOk(pageInfo.getRecords(), pageInfo.getTotal());
+    }
+
+    @ApiOperation("删除医生")
+    @PreAuthorize("hasAuthority('sys:doctor:delete')")
+    @DeleteMapping("/{id}")
+    public JsonResult remove(@NotNull @PathVariable("id") Integer id) {
+       doctorService.deleteById(id);
+        return JsonResult.ok();
+    }
+
+    @ApiOperation("批量删除挂号")
+    @PreAuthorize("hasAuthority('sys:doctor:delete')")
+    @DeleteMapping
+    public JsonResult removeBatch(@NotEmpty @RequestBody List<Integer> idList) {
+        doctorService.deleteByIdList(idList);
+        return JsonResult.ok();
+    }
+
+    @ApiOperation("添加医生")
+    @PreAuthorize("hasAuthority('sys:doctor:add')")
+    @PostMapping
+    public JsonResult save(@Validated @RequestBody Doctor doctor){
+        doctor.setCreateTime(new Date());
+        doctor.setUpdateTime(doctor.getCreateTime());
+        doctorService.saveOrUpdate(doctor);
+        return JsonResult.ok();
+    }
+
+    @ApiOperation("修改医生")
+    @PreAuthorize("hasAuthority('sys:doctor:edit')")
+    @PutMapping
+    public JsonResult update(@Validated @RequestBody Doctor doctor){
+        doctor.setUpdateTime(new Date());
+        doctorService.saveOrUpdate(doctor);
+        return JsonResult.ok();
     }
 
 }

@@ -11,6 +11,8 @@ import com.educational.demo.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Author: Mångata
  * @Email:1787506199a@gmail.com
@@ -25,4 +27,5 @@ public interface UnitsMapper extends BaseMapper<Units> {
      * @return 单位类列表
      */
     Page<Units> listTableByPage(IPage<Units> page,@Param("ew") QueryWrapper<Units> queryWrapper);
+
 }
