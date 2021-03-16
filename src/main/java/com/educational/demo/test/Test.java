@@ -10,16 +10,21 @@ import net.sf.json.JSONObject;
  */
 public class Test {
     public static void main(String[] args) {
-        String jsonStr= "{\"param\":\"sdhfjsdhf\",\"paramRel\":\"qwjqewq\",\"paramType\":\"dsjf\"}";
-       // JSONObject jsonObject = JSONObject.fromObject(jsonStr);
-        TestVO vo = new TestVO();
+//        String jsonStr= "{\"param\":\"sdhfjsdhf\",\"paramRel\":\"qwjqewq\",\"paramType\":\"dsjf\"}";
+//       // JSONObject jsonObject = JSONObject.fromObject(jsonStr);
+//        TestVO vo = new TestVO();
+//
+//        vo = (TestVO) net.sf.json.JSONObject.toBean(JSONObject.fromObject(jsonStr), TestVO.class);
+//        System.out.println(vo);
+//        vo.setParam("{\"hsdfjhsd\":\"sdhfjsdhf\",\"jshdfjsdhf\":\"qwjqewq\"}");
+//        vo.setParamRel("{\"snfgskd\":\"skdhfskd\",\"sdfhskdf\":\"fsdnfksd\"}");
+//        vo.setParamType("{\"snfgskd\":\"skdhfskd\",\"sdfhskdf\":\"fsdnfksd\"}");
+//        JSONObject json = JSONObject.fromObject(vo);
+//        System.out.println(json.toString());
 
-        vo = (TestVO) net.sf.json.JSONObject.toBean(JSONObject.fromObject(jsonStr), TestVO.class);
-        System.out.println(vo);
-        vo.setParam("{\"hsdfjhsd\":\"sdhfjsdhf\",\"jshdfjsdhf\":\"qwjqewq\"}");
-        vo.setParamRel("{\"snfgskd\":\"skdhfskd\",\"sdfhskdf\":\"fsdnfksd\"}");
-        vo.setParamType("{\"snfgskd\":\"skdhfskd\",\"sdfhskdf\":\"fsdnfksd\"}");
-        JSONObject json = JSONObject.fromObject(vo);
-        System.out.println(json.toString());
+
+        String imgth = "/admin/img/6.jpg";
+        String b = imgth.replace("/admin/img/","");
+        System.out.println(b);
     }
 }

@@ -53,6 +53,9 @@ public class AdminRouteController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private PhotoService photoService;
+
 
     @ApiOperation("页面路由")
     @GetMapping("/page/{moduleName}/{pageName}")
@@ -145,5 +148,13 @@ public class AdminRouteController {
     public String editProject(@PathVariable("id") Integer id, Model model){
         model.addAttribute("project",projectService.selectById(id));
         return "admin/project/project-edit";
+    }
+
+    @ApiOperation("更新照片页面")
+    @PreAuthorize("hasAuthority('blog:photo:edit')")
+    @GetMapping("/photo/{id}")
+    public String editPhoto(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("photo", photoService.getById(id));
+        return "admin/photo/photo-edit";
     }
 }

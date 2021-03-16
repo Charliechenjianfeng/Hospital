@@ -1,6 +1,6 @@
 #服务器端口
 server:
-  port: 8889
+  port: 8080
   servlet:
     session:
       timeout: 3600s
@@ -76,7 +76,7 @@ mybatis-plus:
 
 # 文件存储路径
 file:
-  path: /usr/blog/
+  path: F:\Hospital\educational\src\main\resources\static\admin\img\
   avatar: /usr/blog/avatar/
   # 文件大小 /M
   maxSize: 100

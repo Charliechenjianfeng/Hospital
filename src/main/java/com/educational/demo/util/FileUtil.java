@@ -143,7 +143,7 @@ public class FileUtil extends cn.hutool.core.io.FileUtil {
         String suffix = getExtensionName(file.getOriginalFilename());
         String nowStr = "-" + format.format(date);
         try {
-            String fileName = name + nowStr + "." + suffix;
+            String fileName = name +  "." + suffix;
             String path = filePath + fileName;
             // getCanonicalFile 可解析正确各种路径
             File dest = new File(path).getCanonicalFile();
