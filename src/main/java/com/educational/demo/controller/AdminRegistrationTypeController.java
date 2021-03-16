@@ -1,6 +1,7 @@
 package com.educational.demo.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.RegistrationType;
@@ -33,6 +34,7 @@ public class AdminRegistrationTypeController {
 
     @ApiOperation("查询挂号类型")
     @PreAuthorize("hasAuthority('sys:registrationType:query')")
+    @AccessLog("访问挂号类型页面")
     @GetMapping("/list")
     public JsonResult listAll() {
         return JsonResult.ok(registrationTypeService.listAll());

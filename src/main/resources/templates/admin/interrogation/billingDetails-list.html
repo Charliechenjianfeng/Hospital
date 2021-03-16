@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>收费</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/admin/layuimini/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/layuimini/css/public.css" media="all">
+</head>
+
+<style>
+    #payMoney{
+        text-align: center;
+        font-size: 16px;
+        color: #737383;
+        margin-top: 10px;
+    }
+
+    #addMoney{
+        width: 100px;
+        background-color:rgb(1,150,136);
+        border: 1px;
+        border-radius: 3px;
+        margin-right: 20px;
+        height: 30px;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #cancel{
+        width: 100px;
+        background-color:#CCCCCC;
+        border: 1px;
+        border-radius: 3px;
+        margin-left: 20px;
+        height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+
+
+</style>
+
+<body>
+<div id="payMoney" style="text-align: center;display: none">
+    应收金额:&nbsp;&nbsp;&nbsp;&nbsp;<input class="inp" id="receivable" readonly type="text" >元<br/><br/>
+    已收金额:&nbsp;&nbsp;&nbsp;&nbsp;<input class="inp" id="received" type="number">元<br/><br/>
+    应找零头:&nbsp;&nbsp;&nbsp;&nbsp;<input class="inp" id="change" readonly type="text">元<br/><br/><br/>
+    <input id="addMoney" type="button" value="提交"><input id="cancel" type="button" value="取消">
+</div>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm data-add-btn" lay-event="pay" permission="sys:money:query">收费
+                </button>
+            </div>
+        </script>
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+    </div>
+</div>
+<script src="/static/admin/layuimini/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="/static/admin/layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="/static/admin/my/js/my.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+<script>
+    layui.use(['form', 'table', 'laydate'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            laydate = layui.laydate;
+        var mainIndex;
+        var registrationId =localStorage.getItem('payRegistrationId');
+
+        //日期范围
+        laydate.render({
+            elem: '#date-range',
+            range: '~',
+            theme: 'molv'
+        });
+
+        table.render({
+            elem: '#currentTableId',
+            url: '/admin/billing/registration/'+registrationId,
+            toolbar: '#toolbarDemo',
+            defaultToolbar: ['filter', 'exports', 'print', {
+                title: '提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            cols: [
+                [
+                    {field: 'detailsId', width: 80, title: 'ID', sort: true},
+                    {
+                        field: 'department', title: '病人名', width: 100, sort: true, align: 'center', templet: function (data) {
+                            if (data.registration !== undefined) {
+                                let patientName = data.registration.patientName;
+                                return '<span class="layui-badge ">' + patientName+ '</span>';
+                            } else {
+                                return '-';
+                            }
+                        }
+                    },
+                    {field: 'drugName', width: 150, title: '药品名', sort: true},
+                    {field: 'perPrice', width: 80, title: '单价'},
+                    {field: 'drugNumber', width: 80, title: '数量'},
+                    {field: 'totalPrice', width: 80, title: '总价'},
+
+                    {field: 'createTime', title: '创建时间', minWidth: 200, sort: true},
+                    {field: 'updateTime', title: '更新时间', minWidth: 200, sort: true},
+                ]
+            ],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 15,
+            page: true,
+            done: function () {
+                checkPermission();
+            }
+        });
+
+
+        /**
+         * toolbar监听事件
+         */
+        table.on('toolbar(currentTableFilter)', function (obj) {
+            var data = obj.data;
+
+            if (obj.event === 'pay') {  // 监听添加操作
+                mainIndex=layer.open({
+                    type:1,
+                    title:'确认收费',
+                    content:$("#payMoney"),
+                    area:['400px','350px']
+
+                });
+                $.ajax({
+                    url: '/admin/billing/getPrice',
+                    type: 'GET',
+                    data : {"registrationId":registrationId},
+                    success: function (result) {
+                        if (result.code === 200) {
+                            $("#receivable").val(result.data);
+                        }
+                    }
+                });
+            }
+
+            document.onkeyup = function () {
+
+                //alert("Key: "+event.keyCode)
+                var y=$("#receivable").val();
+                var j=$("#received").val();
+                $("#change").val(Calculation(j, y));
+            };
+
+
+            $("#cancel").click(function(){
+                $("#receivable").val("");
+                $("#received").val("");
+                $("#change").val("");
+                layer.close(mainIndex);
+            });
+
+
+            //确认收费
+            $("#addMoney").click(function(){
+                axios({
+                    method: 'post',
+                    url: '/admin/billing/received/'+registrationId,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                }).then((response) => {
+                    layer.close(mainIndex);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '添加成功',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        onClose: () => {
+                            var parentLayer = parent.layer;
+                            var iframeIndex = parentLayer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            parentLayer.close(iframeIndex);
+                        }
+                    });
+                }).catch((error) => {
+                    $("#receivable").val("");
+                    $("#received").val("");
+                    $("#change").val("");
+                    layer.close(mainIndex);
+                    Swal.fire({
+                        icon: 'error',
+                        title: '添加失败！',
+                        text: `${error.response.data.message}`,
+                    });
+                });
+                return false;
+            });
+
+
+        });
+
+
+        /**
+         * @return {number}
+         */
+        function Calculation(num1, num2) {
+
+            var temp1, temp2, a;
+            try {
+                // 获取temp1小数点后的长度
+                temp1 = num1.toString().split(".")[1].length;
+            }
+            catch (e) {
+                temp1 = 0;
+            }
+            try {
+                // 获取temp2小数点后的长度
+                temp2 = num2.toString().split(".")[1].length;
+            }
+            catch (e) {
+                temp2 = 0;
+            }
+            // Math.max(temp1, temp2) 为了获取temp1和temp2两个值中较大的一个
+            // Math.pow(a,b) 表示 a 的 b 次方
+            a = Math.pow(10, Math.max(temp1, temp2));
+
+            return  (num1 * a - num2 * a) / a;
+        }
+
+    });
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.educational.demo.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Doctor;
@@ -35,6 +36,7 @@ public class AdminDrugController {
 
     @ApiOperation("查询所有药品")
     @PreAuthorize("hasAuthority('sys:drug:query')")
+    @AccessLog("访问药品页面")
     @GetMapping
     public JsonResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                  @RequestParam(value = "limit", defaultValue = "10") Integer limit,

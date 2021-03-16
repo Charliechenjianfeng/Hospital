@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>药品信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/admin/layuimini/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/layuimini/css/public.css" media="all">
+</head>
+<body>
+<div id="drugNum" style="text-align: center;display: none" class="layuimini-container">
+    <input type="number" id="drugNumber" style="height: 25px;width:200px;margin-top: 15px;" placeholder="请输入数量"/>
+    <span id="unitsName1"></span><br/><br/><br/><br/>
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" id="addDrug">提交</button>
+    <button type="button" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="cancel" >取消</button>
+</div>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <fieldset class="table-search-fieldset" permission="sys:registration:query">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="drugName" autocomplete="off" class="layui-input"
+                                       placeholder="不输入则忽略类型名筛选">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">日期范围</label>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="date-range" placeholder="不输入则忽略日期范围筛选"
+                                       name="dateRange">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="submit" class="layui-btn layui-btn-primary" lay-submit
+                                    lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </button>
+                            <button type="reset" class="layui-btn layui-btn-primary"><i
+                                    class="layui-icon layui-icon-fonts-clear"></i> 清 空
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="choose" permission="sys:drug:query">选择</a>
+        </script>
+
+    </div>
+</div>
+<script src="/static/admin/layuimini/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="/static/admin/layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="/static/admin/my/js/my.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+<script>
+    layui.use(['form', 'table', 'laydate'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            laydate = layui.laydate;
+        var addDrugs;
+
+        //日期范围
+        laydate.render({
+            elem: '#date-range',
+            range: '~',
+            theme: 'molv'
+        });
+
+        table.render({
+            elem: '#currentTableId',
+            url: '/admin/project',
+            toolbar: '#toolbarDemo',
+            defaultToolbar: ['filter', 'exports', 'print', {
+                title: '提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            cols: [
+                [
+                    {type: "checkbox", width: 50, fixed: "left"},
+                    {field: 'projectId', width: 80, title: 'ID', sort: true},
+                    {field: 'projectName', width: 150, title: '单位名', sort: true},
+                    {
+                        field: 'units', title: '单位', width: 100, sort: true, align: 'center', templet: function (data) {
+                            if (data.units !== undefined) {
+                                let unitsName = data.units.unitsName;
+                                return '<span class="layui-badge ">' + unitsName+ '</span>';
+                            } else {
+                                return '-';
+                            }
+                        }
+                    },
+                    {field: 'sellingPrice', width: 150, title: '售价', sort: true},
+                    {
+                        field: 'checkStatus', width: 80, title: '检查', sort: true, align: 'center', templet: function (data) {
+                            let checkStatus = data.checkStatus ? '需要' : '不需要';
+                            let color = (data.checkStatus ? 'blue' : 'red');
+                            let bgColor = 'layui-bg-' + color;
+                            return '<span class="layui-badge ' + bgColor + '">' + checkStatus + '</span>';
+                        }
+                    },
+                    {field: 'createTime', title: '创建时间', minWidth: 200, sort: true},
+                    {field: 'updateTime', title: '更新时间', minWidth: 200, sort: true},
+                    {
+                        title: '操作',
+                        minWidth: 200,
+                        toolbar: '#currentTableBar',
+                        fixed: "right",
+                        align: "center",
+                    }
+                ]
+            ],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 15,
+            page: true,
+            done: function () {
+                checkPermission();
+            }
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            let projectName = data.field.projectName;
+            let dateRange = data.field.dateRange;
+            let dates = dateRange.split(' ~ ');
+            let startDate = dates[0];
+            let endDate = dates[1];
+
+            //执行搜索重载
+            table.reload('currentTableId', {
+                page: {
+                    curr: 1
+                }
+                , where: {
+                    projectName: projectName,
+                    startDate: startDate,
+                    endDate: endDate
+                }
+            }, 'data');
+
+            return false;
+        });
+
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'choose') {
+                addDrugs=layer.open({
+                    type:1,
+                    title:'选择数量',
+                    content:$("#drugNum"),
+                    area:['300px', '200px']
+                });
+                $("#unitsName1").text(data.units.unitsName);//单位
+            }
+
+            $("#addDrug").click(function () {
+                var drugNumber = $("#drugNumber").val();
+                var registrationId =localStorage.getItem('registrationId');
+                alert(data.drugName);
+                axios({
+                    method: 'put',
+                    url: '/admin/billing/projectAdd',
+                    data: {
+                        "registrationId": registrationId,
+                        "drugNumber" : drugNumber,
+                        "perPrice" : data.sellingPrice,
+                        "totalPrice": drugNumber* data.sellingPrice,
+                        "drugName" : data.projectName,
+                        "checkStatus": data.checkStatus
+                    },
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                }).then((response) => {
+                    layer.close(addDrugs);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '添加成功',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }).catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '添加失败！',
+                        text: `${error.response.data.message}`,
+                    });
+                });
+                return false;
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

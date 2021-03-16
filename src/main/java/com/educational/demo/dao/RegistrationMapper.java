@@ -59,9 +59,13 @@ public interface RegistrationMapper extends BaseMapper<Registration> {
 
 
     /**
-     * 更新
-     * @param registration
+     * 根据id结束
+     * @param finishId
      */
-    void updateRegistration(Registration registration);
+    void finish(Long finishId);
+
+    void addDescribe (Long registrationId, String describe);
+
+
 
 }

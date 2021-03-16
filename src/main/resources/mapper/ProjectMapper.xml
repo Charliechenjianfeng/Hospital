@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.ProjectMapper">
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Project">
+        <result property="projectId" column="projectId"/>
+        <result property="projectName" column="projectName"/>
+        <result property="sellingPrice" column="sellingPrice"/>
+        <result property="checkStatus" column="checkStatus"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="createTime" column="createTime"/>
+        <association property="units" javaType="com.educational.demo.model.Units">
+            <result property="unitsId" column="unitsId"/>
+            <result property="unitsName" column="unitsName"/>
+        </association>
+    </resultMap>
+
+    <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select pr.projectId, pr.projectName, pr.sellingPrice, pr.checkStatus, pr.createTime, pr.updateTime, u.unitsName
+        from medicalproject pr
+        left join units u on pr.unitsId = u.unitsId
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+        order by pr.projectId
+    </select>
+</mapper>

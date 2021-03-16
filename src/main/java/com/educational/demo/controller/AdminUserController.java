@@ -1,6 +1,7 @@
 package com.educational.demo.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.Constant;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
@@ -36,6 +37,7 @@ public class AdminUserController {
 
     @ApiOperation("查询用户")
     @PreAuthorize("hasAuthority('sys:user:query')")
+    @AccessLog("访问用户页面")
     @GetMapping
     public TableResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                   @RequestParam(value = "limit", defaultValue = "10") Integer limit,

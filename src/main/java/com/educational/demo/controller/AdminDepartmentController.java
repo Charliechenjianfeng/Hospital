@@ -1,5 +1,6 @@
 package com.educational.demo.controller;
 
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.model.Department;
 import com.educational.demo.service.DepartmentService;
@@ -40,6 +41,7 @@ public class AdminDepartmentController {
     }
 
     @ApiOperation("查询科室")
+    @AccessLog("访问科室页面")
     @PreAuthorize("hasAuthority('sys:department:query')")
     @GetMapping
     public JsonResult listAllDepartment(){
@@ -70,7 +72,7 @@ public class AdminDepartmentController {
         return JsonResult.ok();
     }
 
-    @ApiOperation("查询分科室")
+    @ApiOperation("删除分科室")
     @PreAuthorize("hasAuthority('sys:department:query')")
     @DeleteMapping("/{id}")
     public JsonResult delete(@NotNull @PathVariable("id") Integer id){

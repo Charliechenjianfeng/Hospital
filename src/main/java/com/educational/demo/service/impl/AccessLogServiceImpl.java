@@ -77,7 +77,7 @@ public class AccessLogServiceImpl implements AccessLogService {
     public Page<AccessLog> listTableByPage(Integer current, Integer size, LogQuery logQuery) {
         Page<AccessLog> page = new Page<>(current, size);
         QueryWrapper<AccessLog> wrapper = new QueryWrapper<>();
-        wrapper.select(AccessLog.Table.ID, AccessLog.Table.REQUEST_IP, AccessLog.Table.ADDRESS, AccessLog.Table.DESCRIPTION, AccessLog.Table.BROWSER, AccessLog.Table.TIME, AccessLog.Table.CREATE_TIME, AccessLog.Table.STATUS)
+        wrapper.select(AccessLog.Table.ID, AccessLog.Table.REQUEST_IP, AccessLog.Table.ADDRESS, AccessLog.Table.DESCRIPTION, AccessLog.Table.BROWSER, AccessLog.Table.TIME, AccessLog.Table.CREATE_TIME, AccessLog.Table.STATUS,AccessLog.Table.EXCEPTION_DETAIL,AccessLog.Table.LOG_TYPE,AccessLog.Table.METHOD,AccessLog.Table.PARAMS,AccessLog.Table.USERNAME)
                 .orderByDesc(AccessLog.Table.CREATE_TIME);
         if (!StringUtils.isEmpty(logQuery.getRequestIp())) {
             wrapper.like(AccessLog.Table.REQUEST_IP, logQuery.getRequestIp());

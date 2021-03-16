@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>挂号</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/admin/layuimini/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/layuimini/css/public.css" media="all">
+</head>
+<body>
+
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <fieldset class="table-search-fieldset" permission="sys:registration:query">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">名字</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="patientName" autocomplete="off" class="layui-input"
+                                       placeholder="不输入则忽略角色名筛选">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">手机号码</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="phone" autocomplete="off" class="layui-input"
+                                       placeholder="不输入则忽略描述筛选">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">日期范围</label>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="date-range" placeholder="不输入则忽略日期范围筛选"
+                                       name="dateRange">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="submit" class="layui-btn layui-btn-primary" lay-submit
+                                    lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </button>
+                            <button type="reset" class="layui-btn layui-btn-primary"><i
+                                    class="layui-icon layui-icon-fonts-clear"></i> 清 空
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="charge"
+               permission="sys:money:query">选择</a>
+        </script>
+
+    </div>
+</div>
+<script src="/static/admin/layuimini/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="/static/admin/layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="/static/admin/my/js/my.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+<script>
+    layui.use(['form', 'table', 'laydate'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            laydate = layui.laydate;
+
+        var index;
+
+        //日期范围
+        laydate.render({
+            elem: '#date-range',
+            range: '~',
+            theme: 'molv'
+        });
+
+        table.render({
+            elem: '#currentTableId',
+            url: '/admin/registration',
+            toolbar: '#toolbarDemo',
+            defaultToolbar: ['filter', 'exports', 'print', {
+                title: '提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            cols: [
+                [
+                    {type: "checkbox", width: 50, fixed: "left"},
+                    {field: 'registrationId', width: 80, title: 'ID', sort: true},
+                    {field: 'patientName', width: 150, title: '病人名', sort: true},
+                    {
+                        field: 'sex', width: 80, title: '性别', sort: true, align: 'center', templet: function (data) {
+                            let sex = data.sex ? '男' : '女';
+                            let color = (data.sex ? 'blue' : 'red');
+                            let bgColor = 'layui-bg-' + color;
+                            return '<span class="layui-badge ' + bgColor + '">' + sex + '</span>';
+                        }
+                    },
+
+                    {field: 'age', width: 80, title: '年龄'},
+                    {
+                        field: 'department',
+                        title: '科室',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
+                            if (data.department !== undefined) {
+                                let departmentName = data.department.departmentName;
+                                return '<span class="layui-badge ">' + departmentName + '</span>';
+                            } else {
+                                return '-';
+                            }
+                        }
+                    },
+                    {
+                        field: 'doctor',
+                        title: '医生名',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
+                            if (data.doctor !== undefined) {
+                                let doctorName = data.doctor.doctorName;
+                                return '<span class="layui-badge ">' + doctorName + '</span>';
+                            } else {
+                                return '-';
+                            }
+                        }
+                    },
+                    {
+                        field: 'registrationType',
+                        title: '挂号类型',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
+                            if (data.registrationType !== undefined) {
+                                let type = data.registrationType.type;
+                                return '<span class="layui-badge ">' + type + '</span>';
+                            } else {
+                                return '-';
+                            }
+                        }
+                    },
+                    {field: 'price', width: 80, title: '花费'},
+                    {field: 'createMan', width: 80, title: '办理人'},
+                    {field: 'phone', width: 150, title: '电话'},
+                    {field: 'idCard', width: 200, title: '身份证号'},
+                    {field: 'rdescribe', width: 200, title: '病情描述'},
+                    {field: 'createTime', title: '创建时间', minWidth: 200, sort: true},
+                    {field: 'updateTime', title: '更新时间', minWidth: 200, sort: true},
+                    {
+                        title: '操作',
+                        minWidth: 300,
+                        toolbar: '#currentTableBar',
+                        fixed: "right",
+                        align: "center",
+                    }
+                ]
+            ],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 15,
+            page: true,
+            done: function () {
+                checkPermission();
+            }
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            let phone = data.field.phone;
+            let patientName = data.field.patientName;
+            let dateRange = data.field.dateRange;
+            let dates = dateRange.split(' ~ ');
+            let startDate = dates[0];
+            let endDate = dates[1];
+
+            //执行搜索重载
+            table.reload('currentTableId', {
+                page: {
+                    curr: 1
+                }
+                , where: {
+                    patientName: patientName,
+                    phone: phone,
+                    startDate: startDate,
+                    endDate: endDate
+                }
+            }, 'data');
+
+            return false;
+        });
+
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'charge') {  // 监听添加操作
+                localStorage.setItem('payRegistrationId', data.registrationId);
+                var project = top.layer.open({
+                    title: '收费',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin: true,
+                    shadeClose: true,
+                    area: ['1000px', '600px'],
+                    content: '/admin/page/interrogation/billingDetails-list',
+                });
+            }
+
+
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

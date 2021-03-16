@@ -10,9 +10,19 @@
     <link rel="stylesheet" href="/static/admin/layuimini/css/public.css" media="all">
 </head>
 <body>
+<!--填写病因页面开始-->
+<div style="display: none;padding-top: 20px" id="pathogenesis" >
+    <div style="height: 30px;width: 100px;margin-left:30px;line-height: 30px;">填写用户病因:</div>
+    <textarea id="rdescribe" style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状病因" class="layui-textarea"></textarea>
+    <div style="height: 100px;width: 600px;margin-left:30px;text-align: center;line-height: 100px;">
+        <input type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" id="addDescribe" style="height:40px;width: 100px;" value="提交">
+        <input type="button" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="cancel" style="height:40px;width: 100px;" value="取消" >
+    </div>
+</div>
+
 <div class="layuimini-container">
     <div class="layuimini-main">
-        <fieldset class="table-search-fieldset" permission="sys:role:query">
+        <fieldset class="table-search-fieldset" permission="sys:registration:query">
             <legend>搜索信息</legend>
             <div style="margin: 10px 10px 10px 10px">
                 <form class="layui-form layui-form-pane" action="">
@@ -51,24 +61,18 @@
             </div>
         </fieldset>
 
-        <script type="text/html" id="toolbarDemo">
-            <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-sm data-add-btn" lay-event="add" permission="sys:registration:add">挂号
-                </button>
-                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"
-                        permission="sys:registration:delete">批量删除
-                </button>
-            </div>
-        </script>
+
 
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 
         <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit" permission="sys:registration:edit">编辑</a>
-            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete"
-               permission="sys:registration:delete">删除</a>
-            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="transfer"
-               permission="sys:registration:transfer">转院</a>
+            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="addDrug" permission="sys:registration:query">药品</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="addProject"
+               permission="sys:registration:query">项目</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete"  lay-event="write"
+               permission="sys:registration:query">填写病因</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="finish"
+               permission="sys:registration:query">结束</a>
         </script>
 
     </div>
@@ -84,6 +88,8 @@
             form = layui.form,
             table = layui.table,
             laydate = layui.laydate;
+
+        var index;
 
         //日期范围
         laydate.render({
@@ -103,7 +109,6 @@
             }],
             cols: [
                 [
-                    {type: "checkbox", width: 50, fixed: "left"},
                     {field: 'registrationId', width: 80, title: 'ID', sort: true},
                     {field: 'patientName', width: 150, title: '病人名', sort: true},
                     {
@@ -117,30 +122,45 @@
 
                     {field: 'age', width: 80, title: '年龄'},
                     {
-                        field: 'department', title: '科室', width: 100, sort: true, align: 'center', templet: function (data) {
+                        field: 'department',
+                        title: '科室',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
                             if (data.department !== undefined) {
                                 let departmentName = data.department.departmentName;
-                                return '<span class="layui-badge ">' + departmentName+ '</span>';
+                                return '<span class="layui-badge ">' + departmentName + '</span>';
                             } else {
                                 return '-';
                             }
                         }
                     },
                     {
-                        field: 'doctor', title: '医生名', width: 100, sort: true, align: 'center', templet: function (data) {
+                        field: 'doctor',
+                        title: '医生名',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
                             if (data.doctor !== undefined) {
                                 let doctorName = data.doctor.doctorName;
-                                return '<span class="layui-badge ">' + doctorName+ '</span>';
+                                return '<span class="layui-badge ">' + doctorName + '</span>';
                             } else {
                                 return '-';
                             }
                         }
                     },
                     {
-                        field: 'registrationType', title: '挂号类型', width: 100, sort: true, align: 'center', templet: function (data) {
+                        field: 'registrationType',
+                        title: '挂号类型',
+                        width: 100,
+                        sort: true,
+                        align: 'center',
+                        templet: function (data) {
                             if (data.registrationType !== undefined) {
                                 let type = data.registrationType.type;
-                                return '<span class="layui-badge ">' + type+ '</span>';
+                                return '<span class="layui-badge ">' + type + '</span>';
                             } else {
                                 return '-';
                             }
@@ -150,15 +170,15 @@
                     {field: 'createMan', width: 80, title: '办理人'},
                     {field: 'phone', width: 150, title: '电话'},
                     {field: 'idCard', width: 200, title: '身份证号'},
+                    {field: 'rdescribe', width: 200, title: '病情描述'},
                     {field: 'createTime', title: '创建时间', minWidth: 200, sort: true},
                     {field: 'updateTime', title: '更新时间', minWidth: 200, sort: true},
                     {
                         title: '操作',
-                        minWidth: 200,
+                        minWidth: 300,
                         toolbar: '#currentTableBar',
                         fixed: "right",
                         align: "center",
-                        hide: (!hasPermission('sys:registration:edit') && !hasPermission('sys:registration:delete'))
                     }
                 ]
             ],
@@ -172,8 +192,8 @@
 
         // 监听搜索操作
         form.on('submit(data-search-btn)', function (data) {
-            let patientName = data.field.patientName;
             let phone = data.field.phone;
+            let patientName = data.field.patientName;
             let dateRange = data.field.dateRange;
             let dates = dateRange.split(' ~ ');
             let startDate = dates[0];
@@ -196,148 +216,31 @@
         });
 
 
-        /**
-         * toolbar监听事件
-         */
-        table.on('toolbar(currentTableFilter)', function (obj) {
-            if (obj.event === 'add') {  // 监听添加操作
-                var index = layer.open({
-                    title: '挂号',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin: true,
-                    shadeClose: true,
-                    area: ['50%', '90%'],
-                    content: '/admin/page/outpatient/registration-add',
-                });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
-            } else if (obj.event === 'delete') {  // 监听删除操作
-                var checkStatus = table.checkStatus('currentTableId')
-                    , data = checkStatus.data;
-                var idList = [];
-                $.each(data, function () {
-                    let id = $(this)[0].registrationId;
-                    idList.push(id);
-                });
-                if (idList.length <= 0) {
-                    return false;
-                }
-                Swal.fire({
-                    title: '确定删除选中的' + idList.length + '个挂号信息吗？',
-                    text: '你将无法恢复它！',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '确定删除！',
-                    cancelButtonText: '取消删除！',
-                    showLoaderOnConfirm: true,
-                    preConfirm: () => {
-                        return new Promise((resolve, reject) => {
-                            axios({
-                                method: 'delete',
-                                url: '/admin/registration',
-                                data: idList,
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
-                                .then(response => {
-                                    table.reload('currentTableId');
-                                    resolve(response.data);
-                                }, error => {
-                                    reject(error);
-                                })
-                        }).then(res => {
-                            Swal.fire({
-                                icon: 'success',
-                                title: '删除成功！',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }).catch(error => {
-                            Swal.showValidationMessage(`删除失败: ${error.response.data.message}`);
-                        })
-                    }
-                });
-            }
-        });
-
         table.on('tool(currentTableFilter)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'edit') {
-                var index = layer.open({
-                    title: '编辑挂号',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin: true,
-                    shadeClose: true,
-                    area: ['50%', '90%'],
-                    content: '/admin/registration/' + data.registrationId,
+            if (obj.event === 'write') {
+                index = layer.open({
+                    type: 1,
+                    title: '填写病因',
+                    content: $("#pathogenesis"),
+                    area: ['700px', '500px']
                 });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
-                return false;
-            } else if (obj.event === 'delete') {
+                $("#rdescribe").val(data.rdescribe);
+            } else if (obj.event === 'finish') {
                 Swal.fire({
-                    title: '确定删除选中的这个内容吗？',
-                    text: '你将无法恢复它！',
+                    title: '问诊是否结束？',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '确定删除！',
-                    cancelButtonText: '取消删除！',
-                    showLoaderOnConfirm: true,
-                    preConfirm: () => {
-                        return new Promise((resolve, reject) => {
-                            axios({
-                                method: 'delete',
-                                url: '/admin/registration/' + data.registrationId,
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
-                                .then(response => {
-                                    obj.del();
-                                    resolve(response.data);
-                                }, error => {
-                                    reject(error);
-                                })
-                        }).then(res => {
-                            Swal.fire({
-                                icon: 'success',
-                                title: '删除成功！',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }).catch(error => {
-                            Swal.showValidationMessage(`删除失败: ${error.response.data.message}`);
-                        })
-                    }
-                });
-            }else if (obj.event === 'transfer'){
-                let registrationId = data.registrationId;
-                Swal.fire({
-                    title:"确定要转院吗？",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '确定！',
+                    confirmButtonText: '确定结束！',
                     cancelButtonText: '取消！',
                     showLoaderOnConfirm: true,
                     preConfirm: () => {
                         return new Promise((resolve, reject) => {
                             axios({
                                 method: 'put',
-                                url: '/admin/registration/transfer',
-                                data: {
-                                    registrationId : registrationId
-                                },
+                                url: '/admin/registration/finish/' + data.registrationId,
                                 headers: {
                                     'X-Requested-With': 'XMLHttpRequest'
                                 }
@@ -351,25 +254,87 @@
                         }).then(res => {
                             Swal.fire({
                                 icon: 'success',
-                                title: '转院成功！',
+                                title: '结束成功！',
                                 showConfirmButton: false,
-                                timer: 1500
+                                timer: 1000
                             });
                         }).catch(error => {
-                            Swal.showValidationMessage(`转院失败: ${error.response.data.message}`);
+                            Swal.showValidationMessage(`结束失败: ${error.response.data.message}`);
                         })
                     }
-                }).then((result) => {
-                    if (result.dismiss === Swal.DismissReason.cancel) {
-                        obj.elem.checked = !x;
-                    }
-                    form.render();
+                });
+            } else if (obj.event === 'addDrug') {
+                localStorage.setItem('registrationId',data.registrationId);
+                var index = top.layer.open({
+                    title: '添加药品',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin: true,
+                    shadeClose: true,
+                    area: ['1000px', '600px'],
+                    content: '/admin/page/interrogation/addDrug-list',
+                });
+            }else if (obj.event === 'addProject') {
+                localStorage.setItem('registrationId', data.registrationId);
+                var project = top.layer.open({
+                    title: '添加药品',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin: true,
+                    shadeClose: true,
+                    area: ['1000px', '600px'],
+                    content: '/admin/page/interrogation/addProject-list',
+                });
+            }
+
+
+            $("#cancel").click(function () {
+                $("#rdescribe").val("");
+                layer.close(index);
+            });
+
+            $("#addDescribe").click(function () {
+                var rdescribe = $("#rdescribe").val();
+                axios({
+                    method: 'post',
+                    url: '/admin/registration/addDescribe',
+                    data: {
+                        "registrationId": data.registrationId,
+                        "rdescribe": rdescribe,
+                        "price" : data.price
+                    },
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                }).then((response) => {
+                    layer.close(index);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '添加成功',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        onClose: () => {
+                            var parentLayer = parent.layer;
+                            var iframeIndex = parentLayer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            parentLayer.close(iframeIndex);
+                        }
+                    });
+                }).catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '添加失败！',
+                        text: `${error.response.data.message}`,
+                    });
                 });
                 return false;
-            }
-        });
+            });
 
+        });
     });
+
+
+
 </script>
 </body>
 </html>

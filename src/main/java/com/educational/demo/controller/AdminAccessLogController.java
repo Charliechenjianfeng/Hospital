@@ -36,14 +36,7 @@ public class AdminAccessLogController {
     public TableResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                   @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                   LogQuery logQuery) {
-        System.out.println("日志被执行了");
         Page<AccessLog> pageInfo = accessLogService.listTableByPage(page, limit, logQuery);
-
-        AccessLogAspect accessLogAspect = new AccessLogAspect();
-        String name = accessLogAspect.getUsername();
-        System.out.println("用户名是"+name);
-
-
         return TableResult.tableOk(pageInfo.getRecords(), pageInfo.getTotal());
 
 

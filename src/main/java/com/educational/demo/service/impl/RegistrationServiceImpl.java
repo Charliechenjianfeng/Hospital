@@ -122,5 +122,15 @@ public class RegistrationServiceImpl implements RegistrationService {
         return registrationMapper.selectById(id);
     }
 
+    @Override
+    public void finish(Long finishId) {
+        registrationMapper.finish(finishId);
+    }
+
+    @Override
+    public void addDescribe(Long registrationId, String description) {
+        registrationMapper.addDescribe(registrationId,description);
+    }
+
 
 }

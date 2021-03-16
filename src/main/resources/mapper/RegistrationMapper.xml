@@ -11,7 +11,7 @@
         <result property="rstatus" column="rstatus"/>
         <result property="phone" column="phone"/>
         <result property="idCard" column="idCard"/>
-        <result property="rDescribe" column="describe"/>
+        <result property="rdescribe" column="rdescribe"/>
         <result property="createTime" column="createTime"/>
         <result property="updateTime" column="updateTime"/>
         <association property="department" javaType="com.educational.demo.model.Department">
@@ -35,10 +35,10 @@
         <result property="age" column="age"/>
         <result property="price" column="price"/>
         <result property="createMan" column="createMan"/>
-        <result property="rStatus" column="rStatus"/>
+        <result property="rstatus" column="rStatus"/>
         <result property="phone" column="phone"/>
         <result property="idCard" column="idCard"/>
-        <result property="rDescribe" column="describe"/>
+        <result property="rdescribe" column="rdescribe"/>
         <result property="createTime" column="createTime"/>
         <result property="updateTime" column="updateTime"/>
         <association property="department" javaType="com.educational.demo.model.Department">
@@ -56,29 +56,37 @@
     </resultMap>
 
     <select id="listTableByPage" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
-        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rDescribe, re.createTime, re.updateTime,
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rdescribe, re.createTime, re.updateTime,
         dm.departmentName, dt.doctorName, rt.type
         from registration re
         left join department dm on re.departmentId = dm.departmentId
         left join doctor dt on re.doctorId = dt.doctorId
         left join registrationType rt on re.typeId = rt.typeId
-        where re.rStatus =1
-        <if test="ew != null and ew.emptyOfWhere == false">
-            ${ew.customSqlSegment}
-        </if>
+        <choose>
+            <when test="ew != null and ew.emptyOfWhere == false">
+                ${ew.customSqlSegment} and re.rStatus =1 and  date(re.createTime) = curdate()
+            </when>
+            <otherwise>
+                where re.rStatus =1 and  date(re.createTime) = curdate()
+            </otherwise>
+        </choose>
         order by re.registrationId
     </select>
 
     <select id="listTableById" resultMap="tableResultMap" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
-        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rDescribe, re.createTime, re.updateTime,
+        select re.registrationId, re.patientName, re.sex, re.age, re.price, re.createMan, re.rStatus, re.phone, re.idCard, re.rdescribe, re.createTime, re.updateTime,
         dm.departmentName, dt.doctorName, rt.type
         from registration re left join department dm on re.departmentId = dm.departmentId
         left join doctor dt on re.doctorId = dt.doctorId
         left join registrationType rt on re.typeId = rt.typeId
-        where dt.doctorId = #{id} and re.rStatus=1
-        <if test="ew != null and ew.emptyOfWhere == false">
-            ${ew.customSqlSegment}
-        </if>
+        <choose>
+            <when test="ew != null and ew.emptyOfWhere == false">
+                ${ew.customSqlSegment} and re.rStatus =1 and  date(re.createTime) = curdate() and dt.doctorId = #{id}
+            </when>
+            <otherwise>
+                where dt.doctorId = #{id} and re.rStatus=1  and date(re.createTime) = curdate()
+            </otherwise>
+        </choose>
         order by re.registrationId
     </select>
 
@@ -93,9 +101,13 @@
     <select id="selectById" resultType="com.educational.demo.model.Registration">
         select re.registrationId, re.sex, re.age, re.idCard, re.phone, re.patientName, re.price, re.rstatus  from registration re where re.registrationId=#{id}
     </select>
-
-    <update id="updateRegistration" parameterType="com.educational.demo.model.Registration">
-        update registration set patientName = #{patientName}, sex=#{sex}, age = #{age} ,departmentId=#{departmentId}, doctorId = #{doctorId}, typeId = #{typeId}, price=#{price},
-                                createMan = #{createMan}, phone = #{phone}, idCard=#{idCard}, updateTime=#{updateTime} where registrationId = #{registrationId}
+    
+    <update id="finish">
+        update registration re SET re.rstatus =2 where re.registrationId = #{finishId}
     </update>
+
+    <update id="addDescribe">
+        update registration re SET re.rdescribe = #{describe} where re.registrationId = #{registrationId}
+    </update>
+
 </mapper>

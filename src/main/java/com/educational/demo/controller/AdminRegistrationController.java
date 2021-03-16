@@ -1,17 +1,21 @@
 package com.educational.demo.controller;
 
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.aspect.AccessLogAspect;
 import com.educational.demo.common.Constant;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
+import com.educational.demo.model.Billingdetails;
 import com.educational.demo.model.Registration;
 import com.educational.demo.model.User;
 import com.educational.demo.query.RegistrationQuery;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.service.BillingDetailsService;
 import com.educational.demo.service.RegistrationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -34,9 +38,13 @@ public class AdminRegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
+    @Autowired
+    private BillingDetailsService billingDetailsService;
+
 
     @ApiOperation("查询挂号信息")
     @PreAuthorize("hasAuthority('sys:registration:query')")
+    @AccessLog("访问挂号页面")
     @GetMapping
     public TableResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                   @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -92,6 +100,7 @@ public class AdminRegistrationController {
         registration.setCreateTime(new Date());
         registration.setUpdateTime(registration.getCreateTime());
         registrationService.saveOfUpdate(registration);
+
         return JsonResult.ok();
     }
 
@@ -109,6 +118,38 @@ public class AdminRegistrationController {
 
 
 
+    /*****************以下为医生问诊*************/
+    @ApiOperation("结束问诊")
+    @PreAuthorize("hasAuthority('sys:registration:query')")
+    @PutMapping("/finish/{id}")
+    public JsonResult finish(@NotNull @PathVariable("id") Long id){
+        registrationService.finish(id);
+        return JsonResult.ok();
+    }
+
+
+    @ApiOperation("填写病情")
+    @PreAuthorize("hasAuthority('sys:registration:query')")
+    @PostMapping("/addDescribe")
+    public JsonResult addDescribe(@RequestBody Registration registration){
+        Long registrationId = registration.getRegistrationId();
+        String rdescribe = registration.getRdescribe();
+         registrationService.addDescribe(registrationId,rdescribe);
+        Billingdetails billingdetails = new Billingdetails();
+        billingdetails.setRegistrationId(registrationId.intValue());
+        billingdetails.setDrugName("挂号费");
+        billingdetails.setDrugNumber(1);
+        billingdetails.setPerPrice(registration.getPrice());
+        billingdetails.setTotalPrice(registration.getPrice());
+        billingdetails.setPayStatus(false);
+        if (billingdetails.getCreateTime()==null){
+            billingdetails.setCreateTime(new Date());
+        }
+        billingdetails.setUpdateTime(new Date());
+        billingDetailsService.insertDrugOrProject(billingdetails);
+
+        return JsonResult.ok();
+    }
 
 
 

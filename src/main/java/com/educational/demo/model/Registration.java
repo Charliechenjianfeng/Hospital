@@ -33,7 +33,7 @@ public class Registration implements Serializable {
     private Integer rstatus;
     private String phone;
     private String idCard;
-    private String rDescribe;
+    private String rdescribe;
     private Date createTime;
     private Date updateTime;
 

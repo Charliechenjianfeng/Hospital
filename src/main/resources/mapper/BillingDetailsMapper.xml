@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.BillingDetailsMapper">
+
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Billingdetails">
+        <result property="detailsId" column="detailsId"/>
+        <result property="drugName" column="drugName"/>
+        <result property="perPrice" column="perPrice"/>
+        <result property="drugNumber" column="drugNumber"/>
+        <result property="totalPrice" column="totalPrice"/>
+        <result property="checkStatus" column="checkStatus"/>
+        <result property="payStatus" column="payStatus"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+        <association property="registration" javaType="com.educational.demo.model.Registration">
+            <result property="registrationId" column="registrationId"/>
+            <result property="patientName" column="patientName"/>
+        </association>
+    </resultMap>
+
+
+    <select id="listTableByRegistrationId" resultMap="tableResultMap">
+        select bd.detailsId, bd.drugName, bd.perPrice, bd.drugNumber,bd.totalPrice,bd.checkStatus,bd.payStatus, bd.createTime, bd.updateTime, re.patientName
+        from billingdetails bd
+        left join registration re on bd.registrationId = re.registrationId
+        where bd.payStatus =0 and bd.registrationId = #{registrationId}
+        order by bd.detailsId
+    </select>
+
+    <select id="getTotalPrice" resultType="Double">
+        select sum(bd.totalPrice)  from billingdetails bd where bd.registrationId=#{registrationId} and bd.payStatus !=1 and date(bd.createTime) = curdate()
+    </select>
+
+    <update id="payment">
+        update billingdetails bg set bg.payStatus = 1 where bg.registrationId = #{registrationId}
+    </update>
+</mapper>

@@ -1,5 +1,6 @@
 package com.educational.demo.controller;
 
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Menu;
@@ -29,6 +30,7 @@ public class AdminMenuController {
 
     @ApiOperation("查询菜单")
     @PreAuthorize("hasAuthority('sys:menu:query')")
+    @AccessLog("访问菜单页面")
     @GetMapping
     public TableResult listAll() {
         return TableResult.tableOk(menuService.listAll(), menuService.countAll());

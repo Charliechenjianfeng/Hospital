@@ -50,6 +50,9 @@ public class AdminRouteController {
     @Autowired
     private DrugService drugService;
 
+    @Autowired
+    private ProjectService projectService;
+
 
     @ApiOperation("页面路由")
     @GetMapping("/page/{moduleName}/{pageName}")
@@ -133,5 +136,14 @@ public class AdminRouteController {
     public String editDrug(@PathVariable("id") Integer id, Model model){
         model.addAttribute("drug",drugService.selectById(id));
         return "admin/drug/drug-edit";
+    }
+
+
+    @ApiOperation("更新医生页面")
+    @PreAuthorize("hasAuthority('sys:project:edit')")
+    @GetMapping("/project/{id}")
+    public String editProject(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("project",projectService.selectById(id));
+        return "admin/project/project-edit";
     }
 }

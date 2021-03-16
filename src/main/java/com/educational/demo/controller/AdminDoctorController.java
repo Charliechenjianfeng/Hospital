@@ -1,6 +1,7 @@
 package com.educational.demo.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.JsonResult;
 import com.educational.demo.common.TableResult;
 import com.educational.demo.model.Doctor;
@@ -41,6 +42,7 @@ public class AdminDoctorController {
 
     @ApiOperation("查询所有医生")
     @PreAuthorize("hasAuthority('sys:doctor:query')")
+    @AccessLog("访问医生页面")
     @GetMapping
     public JsonResult listByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                  @RequestParam(value = "limit", defaultValue = "10") Integer limit,

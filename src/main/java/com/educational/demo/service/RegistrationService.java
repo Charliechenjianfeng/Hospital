@@ -8,6 +8,7 @@ import com.educational.demo.query.RegistrationQuery;
 import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -68,4 +69,17 @@ public interface RegistrationService {
      * @return 该id的对象
      */
     Registration selectById(Long id);
+
+    /**
+     * 结束问诊
+     * @param finishId
+     */
+    void finish(Long finishId);
+
+    /**
+     * 添加查询病情
+     * @param registrationId
+     * @param description
+     */
+    void addDescribe(Long registrationId , String description);
 }
