@@ -62,7 +62,7 @@ spring:
 logging:
   level:
     root: info
-    site.alanliang.geekblog: debug
+    com.educational.demo: debug
   file:
     path: log/geekblog-dev.log
 mybatis-plus:

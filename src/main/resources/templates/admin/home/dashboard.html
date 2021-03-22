@@ -174,7 +174,7 @@
                                     <div class="stat-percent font-bold text-gray">
                                         <i class="fa fa-commenting"></i>&nbsp;{{increasedArticles}}
                                     </div>
-                                    <small>当前分类总记录数</small>
+                                    <small>当前文章总记录数</small>
                                 </div>
                             </div>
                         </div>
@@ -186,13 +186,13 @@
                         <div class="panel layui-bg-blue">
                             <div class="panel-body">
                                 <div class="panel-title">
-                                    <h5>浏览统计</h5>
+                                    <h5>患者统计</h5>
                                 </div>
                                 <div class="panel-content">
-                                    <h1 class="no-margins" v-text="viewCount">0</h1>
-                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i>&nbsp;{{increasedViews}}
+                                    <h1 class="no-margins" v-text="registrationCount">0</h1>
+                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-user-plus"></i>
                                     </div>
-                                    <small>当前分类总记录数</small>
+                                    <small>患者总记录数</small>
                                 </div>
                             </div>
                         </div>
@@ -204,30 +204,31 @@
                         <div class="panel layui-bg-green">
                             <div class="panel-body">
                                 <div class="panel-title">
-                                    <h5>留言统计</h5>
+                                    <h5>当日收入</h5>
                                 </div>
                                 <div class="panel-content">
-                                    <h1 class="no-margins" id="tag-count" v-text="messageCount">0</h1>
-                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i>&nbsp;{{increasedMessages}}
+                                    <h1 class="no-margins" id="money-count" v-text="countOneDay">0</h1>
+                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-rmb"></i>
                                     </div>
-                                    <small>当前分类总记录数</small>
+                                    <small>当天收入统计</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="layui-col-md3">
                     <div class="col-xs-6 col-md-3">
-                        <div class="panel layui-bg-orange">
+                        <div class="panel layui-bg-red">
                             <div class="panel-body">
                                 <div class="panel-title">
-                                    <h5>评论统计</h5>
+                                    <h5>在线人数</h5>
                                 </div>
                                 <div class="panel-content">
-                                    <h1 class="no-margins" v-text="commentCount">0</h1>
-                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i>&nbsp;{{increasedComments}}
+                                    <h1 class="no-margins" v-text="onLinePeople">0</h1>
+                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-id-badge"></i>
                                     </div>
-                                    <small>当前分类总记录数</small>
+                                    <small>在线人数统计</small>
                                 </div>
                             </div>
                         </div>
@@ -248,11 +249,11 @@
                                             <div class="panel layui-bg-number">
                                                 <div class="panel-body">
                                                     <div class="panel-title">
-                                                        <h5>用户统计</h5>
+                                                        <h5>挂号统计</h5>
                                                     </div>
                                                     <div class="panel-content">
-                                                        <h1 class="no-margins" v-text="userCount">0</h1>
-                                                        <small>当前分类总记录数</small>
+                                                        <h1 class="no-margins" v-text="registrationCountByDay">0</h1>
+                                                        <small>当天剩余挂号记录数</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -261,11 +262,11 @@
                                             <div class="panel layui-bg-number">
                                                 <div class="panel-body">
                                                     <div class="panel-title">
-                                                        <h5>访客统计</h5>
+                                                        <h5>文章阅读量</h5>
                                                     </div>
                                                     <div class="panel-content">
-                                                        <h1 class="no-margins" v-text="visitorCount">0</h1>
-                                                        <small>当前分类总记录数</small>
+                                                        <h1 class="no-margins" v-text="countArticleViews">0</h1>
+                                                        <small>当前文章阅读量</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -307,41 +308,35 @@
                             <div class="layui-card-body">
                                 <div class="welcome-module">
                                     <div class="layui-row layui-col-space10 layuimini-qiuck">
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module" permission="blog:article:add">
                                             <a href="javascript:;"
                                                layuimini-content-href="/admin/page/article/article-add"
                                                data-title="文章发布" data-icon="fa fa-pencil-square-o">
                                                 <i class="fa fa-pencil-square-o"></i>
-                                                <cite>教师管理</cite>
+                                                <cite>文章发布</cite>
                                             </a>
                                         </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module"
                                              permission="blog:article:query">
                                             <a href="javascript:;"
                                                layuimini-content-href="/admin/page/article/article-list"
                                                data-title="文章管理" data-icon="fa fa-file-text">
                                                 <i class="fa fa-file-text"></i>
-                                                <cite>学生管理</cite>
+                                                <cite>文章管理</cite>
                                             </a>
                                         </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module"
-                                             permission="blog:comment:query">
-                                            <a href="javascript:;"
-                                               layuimini-content-href="/admin/page/comment/comment-list"
-                                               data-title="评论管理" data-icon="fa fa-comments">
+                                            permission="sys:registration:query">
+                                            <a href="javascript:;" layuimini-content-href="/admin/page/outpatient/registration-list"
+                                               data-title="挂号管理" data-icon="fa fa-comments">
                                                 <i class="fa fa-comments"></i>
-                                                <cite>课程管理</cite>
+                                                <cite>挂号管理</cite>
                                             </a>
                                         </div>
-                                        <div class="layui-col-xs3 layuimini-qiuck-module"
-                                             permission="blog:message:query">
-                                            <a href="javascript:;"
-                                               layuimini-content-href="/admin/page/message/message-list"
-                                               data-title="留言管理" data-icon="fa fa-comment">
-                                                <i class="fa fa-comment"></i>
-                                                <cite>操作日志</cite>
-                                            </a>
-                                        </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module" permission="sys:user:query">
                                             <a href="javascript:;" layuimini-content-href="/admin/page/user/user-list"
                                                data-title="用户管理" data-icon="fa fa-users">
@@ -349,23 +344,27 @@
                                                 <cite>用户管理</cite>
                                             </a>
                                         </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module"
-                                             permission="sys:visitor:query">
+                                             permission="sys:menu:query">
                                             <a href="javascript:;"
-                                               layuimini-content-href="/admin/page/visitor/visitor-list"
-                                               data-title="访客管理" data-icon="fa fa-user">
-                                                <i class="fa fa-user"></i>
+                                               layuimini-content-href="/admin/page/menu/menu-list"
+                                               data-title="菜单管理" data-icon="fa fa-list">
+                                                <i class="fa fa-list"></i>
                                                 <cite>菜单管理</cite>
                                             </a>
                                         </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module"
                                              permission="sys:accesslog:query">
-                                            <a href="javascript:;" layuimini-content-href="/admin/page/accesslog/access-list"
-                                               data-title="访问日志" data-icon="fa fa-eye">
+                                            <a href="javascript:;"
+                                               layuimini-content-href="/admin/page/accesslog/accesslog-list"
+                                               data-title="操作日志" data-icon="fa fa-eye">
                                                 <i class="fa fa-eye"></i>
                                                 <cite>访问日志</cite>
                                             </a>
                                         </div>
+
                                         <div class="layui-col-xs3 layuimini-qiuck-module"
                                              permission="sys:operationlog:query">
                                             <a href="javascript:;"
@@ -373,6 +372,16 @@
                                                data-title="操作日志" data-icon="fa fa-gears">
                                                 <i class="fa fa-gears"></i>
                                                 <cite>操作日志</cite>
+                                            </a>
+                                        </div>
+
+                                        <div class="layui-col-xs3 layuimini-qiuck-module"
+                                             permission="blog:category:query">
+                                            <a href="javascript:;"
+                                               layuimini-content-href="/admin/page/category/category-list"
+                                               data-title="分类管理" data-icon="fa fa-bookmark">
+                                                <i class="fa fa-bookmark"></i>
+                                                <cite>分类管理</cite>
                                             </a>
                                         </div>
                                     </div>
@@ -706,7 +715,6 @@
                 commentCount: 0,
                 viewCount: 0,
                 messageCount: 0,
-                visitorCount: 0,
                 userCount: 0,
                 accessLogs: [],
                 operationLogs: [],
@@ -716,9 +724,12 @@
                 frontViews: [],
                 backViews: [],
                 increasedViews: 0,
+                countOneDay: 0,
+                onLinePeople: 0,
+                registrationCountByDay: 0,
+                countArticleViews: 0,
+                registrationCount: 0,
                 increasedArticles: 0,
-                increasedMessages: 0,
-                increasedComments: 0,
                 notices: [],
             },
             methods: {
@@ -731,15 +742,17 @@
                         this.articleCount = data.articleCount;
                         this.categoryCount = data.categoryCount;
                         this.tagCount = data.tagCount;
-                        this.commentCount = data.commentCount;
+                        this.onLinePeople = data.onLinePeople;
                         this.viewCount = data.viewCount;
                         this.messageCount = data.messageCount;
                         this.visitorCount = data.visitorCount;
                         this.userCount = data.userCount;
                         this.accessLogs = data.accessLogs;
                         this.operationLogs = data.operationLogs;
-                        this.comments = data.comments;
-                        this.messages = data.messages;
+                        this.countArticleViews = data.countArticleViews;
+                        this.countOneDay = data.countOneDay;
+                        this.registrationCountByDay = data.registrationCountByDay;
+                        this.registrationCount = data.registrationCount;
                         this.articles = data.articles;
                         this.frontViews = data.frontViews;
                         this.backViews = data.backViews;

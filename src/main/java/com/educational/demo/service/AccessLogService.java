@@ -3,6 +3,7 @@ package com.educational.demo.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.model.AccessLog;
 import com.educational.demo.query.LogQuery;
+import com.educational.demo.vo.ViewDateVO;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 import java.util.List;
@@ -45,6 +46,19 @@ public interface AccessLogService {
      * @param idList Id列表
      */
     void removeByIdList(List<Long> idList);
+
+    /**
+     * 查询最近的访问日志
+     *
+     * @return 访问日志列表
+     */
+    List<AccessLog> listNewest();
+
+    /**
+     * 统计最近7天的访问数
+     */
+    List<ViewDateVO> countByLast7Days();
+
 
 
 }

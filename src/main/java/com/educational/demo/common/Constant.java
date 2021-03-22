@@ -34,6 +34,15 @@ public interface Constant {
      */
     String DEFAULT_COLOR = "#D5F5E3";
 
+    /**
+     * 审核状态
+     */
+    Integer AUDIT_PASS = 2;
+
+    Integer AUDIT_WAIT = 1;
+
+    Integer AUDIT_NOT_PASS = 0;
+
 
     String DEFAULT_AVATAR = "https://gravatar.loli.net/avatar/f2c02ce7474e4b228a576f7e47f00bd1?d=mp&v=1.3.10";
     /**
@@ -110,5 +119,12 @@ public interface Constant {
     String USER = "user";
 
    public final String ADMINID = "123456";
+
+    /**
+     * 搜索高亮前标签
+     */
+    String HIGH_LIGHT_PRE_TAGS = "<em class='search-keyword'>";
+
+    String HIGH_LIGHT_POST_TAGS = "</em>";
 
 }

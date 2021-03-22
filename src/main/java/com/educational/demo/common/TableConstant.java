@@ -14,6 +14,9 @@ public interface TableConstant {
     String DRUG_ALIAS = "dg.";
     String PROJECT_ALIAS = "pr.";
 
+
+
     String LIMIT = "limit ";
+    String ARTICLE_DOCUMENT = "article_document";
 
 }

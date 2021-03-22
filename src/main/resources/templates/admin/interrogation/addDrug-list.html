@@ -163,7 +163,6 @@
             $("#addDrug").click(function () {
                 var drugNumber = $("#drugNumber").val();
                 var registrationId =localStorage.getItem('registrationId');
-                alert(data.drugName);
                 axios({
                     method: 'put',
                     url: '/admin/billing/drugAdd',
@@ -179,12 +178,14 @@
                     },
                 }).then((response) => {
                     layer.close(addDrugs);
+                    $("#drugNumber").val(null);
                     Swal.fire({
                         icon: 'success',
                         title: '添加成功',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1000,
                     });
+                    location.reload();
                 }).catch((error) => {
                     Swal.fire({
                         icon: 'error',

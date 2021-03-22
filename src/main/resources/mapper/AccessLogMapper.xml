@@ -26,4 +26,13 @@
         order by sa.id
     </select>
 
+    <select id="countByLast7Days" resultType="com.educational.demo.vo.ViewDateVO">
+        SELECT DATE_FORMAT(createTime, '%Y-%m-%d') date,
+               count(*) viewCount
+        FROM (SELECT *
+              FROM sys_access_log
+              WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) = date(createTime)) as sal
+        GROUP BY date;
+    </select>
+
 </mapper>

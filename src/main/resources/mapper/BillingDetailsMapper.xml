@@ -34,4 +34,8 @@
     <update id="payment">
         update billingdetails bg set bg.payStatus = 1 where bg.registrationId = #{registrationId}
     </update>
+
+    <select id="countOneDay" resultType="Double">
+        select sum(totalPrice) from billingdetails  bd where bd.payStatus =1 and date(bd.createTime) = curdate()
+    </select>
 </mapper>

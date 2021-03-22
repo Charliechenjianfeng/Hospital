@@ -37,4 +37,11 @@ public interface BillingDetailsMapper extends BaseMapper<Billingdetails> {
      * @param registrationId
      */
     void payment(@Param("registrationId") Integer registrationId);
+
+
+    /**
+     * 计算当天的收入
+     * @return
+     */
+    Double countOneDay();
 }

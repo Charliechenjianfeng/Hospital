@@ -64,8 +64,19 @@ public interface RegistrationMapper extends BaseMapper<Registration> {
      */
     void finish(Long finishId);
 
+
+    /**
+     * 添加病情描述
+     * @param registrationId
+     * @param describe
+     */
     void addDescribe (Long registrationId, String describe);
 
 
+    /**
+     * 统计剩余患者数量
+     * @return
+     */
+    Integer countByDay();
 
 }

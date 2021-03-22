@@ -82,4 +82,16 @@ public interface RegistrationService {
      * @param description
      */
     void addDescribe(Long registrationId , String description);
+
+    /**
+     * 计算所有的总数
+     * @return
+     */
+    Integer countAll();
+
+    /**
+     * 统计当前门诊人数
+     * @return
+     */
+    Integer countByDay();
 }

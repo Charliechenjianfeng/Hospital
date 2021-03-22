@@ -39,4 +39,9 @@ public class BillingDetailsServiceImpl implements BillingDetailsService {
     public void payment(Integer registrationId) {
         billingDetailsMapper.payment(registrationId);
     }
+
+    @Override
+    public Double countOneDay() {
+        return billingDetailsMapper.countOneDay();
+    }
 }

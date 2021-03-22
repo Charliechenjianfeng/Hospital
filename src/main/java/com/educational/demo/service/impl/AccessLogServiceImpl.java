@@ -3,11 +3,14 @@ package com.educational.demo.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.common.Constant;
+import com.educational.demo.common.TableConstant;
 import com.educational.demo.dao.AccessLogMapper;
 import com.educational.demo.model.AccessLog;
 import com.educational.demo.query.LogQuery;
 import com.educational.demo.service.AccessLogService;
 import com.educational.demo.util.StringUtils;
+import com.educational.demo.util.UserInfoUtil;
+import com.educational.demo.vo.ViewDateVO;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,4 +120,21 @@ public class AccessLogServiceImpl implements AccessLogService {
     public void removeByIdList(List<Long> idList) {
         accessLogMapper.deleteBatchIds(idList);
     }
+
+    @Override
+    public List<ViewDateVO> countByLast7Days() {
+        return accessLogMapper.countByLast7Days();
+    }
+
+
+    @Override
+    public List<AccessLog> listNewest() {
+        QueryWrapper<AccessLog> wrapper = new QueryWrapper<>();
+        wrapper.select(AccessLog.Table.ID, AccessLog.Table.REQUEST_IP, AccessLog.Table.ADDRESS, AccessLog.Table.CREATE_TIME, AccessLog.Table.DESCRIPTION, AccessLog.Table.STATUS)
+                .orderByDesc(AccessLog.Table.CREATE_TIME)
+                .last(TableConstant.LIMIT + Constant.NEWEST_PAGE_SIZE);
+        return accessLogMapper.selectList(wrapper);
+    }
+
+
 }

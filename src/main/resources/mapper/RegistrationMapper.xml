@@ -110,4 +110,8 @@
         update registration re SET re.rdescribe = #{describe} where re.registrationId = #{registrationId}
     </update>
 
+    <select id="countByDay" resultType="Integer">
+        select count(1) from registration re where re.rstatus=1 and date(re.createTime) = curdate()
+    </select>
+
 </mapper>

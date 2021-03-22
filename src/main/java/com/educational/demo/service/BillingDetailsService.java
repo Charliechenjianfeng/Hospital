@@ -19,10 +19,10 @@ public interface BillingDetailsService {
     void insertDrugOrProject(Billingdetails billingdetails);
 
     /**
-     * 根据挂单id来查询账单
+     * 根据id查询账单
      * @param current
      * @param size
-     * @param doctorQuery
+     * @param registrationId
      * @return
      */
     Page<Billingdetails> listTableByRegistrationId(int current, int size, Long registrationId);
@@ -39,5 +39,11 @@ public interface BillingDetailsService {
      * @param registrationId
      */
     void payment(Integer registrationId);
+
+    /**
+     * 计算当天收入
+     * @return
+     */
+    Double countOneDay();
 
 }
