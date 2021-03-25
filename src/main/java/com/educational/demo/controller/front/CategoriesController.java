@@ -5,8 +5,10 @@ import com.educational.demo.anntation.AccessLog;
 import com.educational.demo.common.Constant;
 import com.educational.demo.model.Article;
 import com.educational.demo.model.Category;
+import com.educational.demo.model.Intro;
 import com.educational.demo.service.ArticleService;
 import com.educational.demo.service.CategoryService;
+import com.educational.demo.service.IntroService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class CategoriesController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private IntroService introService;
+
     @ApiOperation("查询分类页面数据")
     @AccessLog("访问分类页面")
     @GetMapping("/categories")
@@ -49,6 +54,25 @@ public class CategoriesController {
                                                    @RequestParam(value = "current", defaultValue = "1") Integer current,
                                                    @RequestParam(value = "size", defaultValue = Constant.PAGE_SIZE) Integer size) {
         Page<Article> pageInfo = articleService.listPreviewPageByCategoryId(current, size, id);
+        return new ResponseEntity<>(pageInfo, HttpStatus.OK);
+    }
+
+
+    @ApiOperation("查询分类页面数据")
+    @AccessLog("访问分类页面")
+    @GetMapping("/categories/Intro")
+    public ResponseEntity<Object> categoriesIntro() {
+        List<Category> categories = categoryService.listByIntroCount();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
+
+    @ApiOperation("查询分类文章")
+    @GetMapping("/category/{id}/intro")
+    public ResponseEntity<Object> categoryIntro(@PathVariable("id") Long id,
+                                                   @RequestParam(value = "current", defaultValue = "1") Integer current,
+                                                   @RequestParam(value = "size", defaultValue = Constant.PAGE_SIZE) Integer size) {
+        Page<Intro> pageInfo = introService.listIntroPageByCategoryId(current, size, id);
         return new ResponseEntity<>(pageInfo, HttpStatus.OK);
     }
 }

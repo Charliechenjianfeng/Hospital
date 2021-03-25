@@ -86,6 +86,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<Category> listByIntroCount() {
+        return categoryMapper.listByIntroCount();
+    }
+
+    @Override
     @CacheEvict(allEntries = true)
     @Transactional(rollbackFor = Exception.class)
     public void saveOfUpdate(Category category) {

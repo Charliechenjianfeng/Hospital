@@ -13,6 +13,7 @@ public interface TableConstant {
     String DOCTOR_ALIAS= "dt.";
     String DRUG_ALIAS = "dg.";
     String PROJECT_ALIAS = "pr.";
+    String INTRO_ALIAS = "it.";
 
 
 

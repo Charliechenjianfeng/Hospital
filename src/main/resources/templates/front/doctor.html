@@ -50,7 +50,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="tag-title center-align">
-                        <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                        <i class="fas fa-bookmark"></i>&nbsp;&nbsp;医生分类
                     </div>
                     <!--分类列表-->
                     <div class="tag-chips">
@@ -59,17 +59,11 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default" :style="{backgroundColor : cate.color}"
                           :class="{'chip-active' : cate.id == categoryId}">{{cate.name}}
-                        <span class="tag-length">{{cate.articleCount}}</span>
+                        <span class="tag-length">{{cate.introCount}}</span>
                     </span>
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--分类雷达图-->
-        <div class="container" data-aos="fade-up" v-if="articles.length===0">
-            <div class="card">
-                <div id="category-radar" class="card-content"></div>
             </div>
         </div>
         <!-- 所有文章卡片 -->
@@ -79,13 +73,11 @@
                     <div class="article col s12 m6 l4" data-aos="zoom-in">
                         <div class="card articleCard">
                             <!--卡片上部-->
-                            <a :href="'/article/'+article.id" target="_blank">
-                                <div class="card-image">
-                                    <!--文章图片-->
-                                    <img class="responsive-img lazy" src="http://cdn.alanliang.site/loading.png"
-                                         :data-src="article.cover">
-                                    <!--文章标题-->
-                                    <span class="card-title">{{article.title}}</span>
+                            <a :href="'/intro/'+article.id" target="_blank">
+                                <div class="card-image lazy"
+                                     :style="{backgroundImage: 'url(http://cdn.alanliang.site/loading.png)' }"
+                                     :data-bg="article.cover" style="height: 350px;background-size: cover">
+                                    <span class="card-title deep-orange-text "><strong>{{article.doctorName}}</strong></span>
                                 </div>
                             </a>
                             <!--卡片下部-->
@@ -102,14 +94,8 @@
                                     <span class="publish-author">
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 <a class="post-category" :href="'/page/categories?id='+article.category.id">{{article.category.name}}</a>
-                            </span>
+                                </span>
                                 </div>
-                            </div>
-                            <!--文章标签-->
-                            <div class="card-action article-tags">
-                                <a :href="'/page/tags?id='+tag.id" v-for="(tag, index) in article.tagList">
-                                    <span class="chip bg-color">{{tag.name}}</span>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +145,7 @@
         methods: {
             getCategories: function () {
                 axios({
-                    url: '/categories',
+                    url: '/categories/Intro',
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest'
@@ -188,46 +174,10 @@
                     indicator.push(category);
                     value.push(cate.articleCount);
                 });
-
-                let option = {
-                    title: {
-                        left: 'center',
-                        text: '文章分类雷达图',
-                        textStyle: {
-                            fontWeight: 500,
-                            fontSize: 22
-                        }
-                    },
-                    tooltip: {},
-                    radar: {
-                        name: {
-                            textStyle: {
-                                color: '#3C4858'
-                            }
-                        },
-                        max: 8,
-                        indicator: indicator,
-                        nameGap: 5,
-                        center: ['50%', '55%'],
-                        radius: '66%'
-                    },
-                    series: [{
-                        type: 'radar',
-                        color: ['#3ecf8e'],
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [
-                            {
-                                value: value,
-                                name: '文章分类数量'
-                            }
-                        ]
-                    }]
-                };
-                radarChart.setOption(option);
             },
             getArticlesByCategoryId: function (categoryId, current) {
                 axios({
-                    url: '/category/' + categoryId + '/articles?current=' + current,
+                    url: '/category/' + categoryId + '/intro?current=' + current,
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest'

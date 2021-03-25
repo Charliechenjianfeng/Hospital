@@ -63,6 +63,13 @@ public interface CategoryService {
      */
     List<Category> listByArticleCount();
 
+
+    /**
+     * 查询所有分类（统计简介数目）
+     * @return
+     */
+    List<Category> listByIntroCount();
+
     /**
      * 统计分类数量
      *

@@ -23,6 +23,13 @@ public interface CategoryMapper extends BaseMapper<Category> {
      */
     List<Category> listByArticleCount();
 
+
+    /**
+     * 统计简介的数目
+     * @return
+     */
+    List<Category> listByIntroCount();
+
     /**
      * 后台查询所有分类
      *

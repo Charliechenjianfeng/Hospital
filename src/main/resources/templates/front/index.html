@@ -98,10 +98,10 @@
         </div>
         <!--end carousel-item-first-->
         <div v-for="(article, index) in topArticles" :key="article.id">
-            <div class="carousel-item  white-text carousel-post bg-cover lazy"
+            <div class="carousel-item  white-text carousel-post lazy"
                  :style="{backgroundImage: 'url(http://cdn.alanliang.site/loading.png)' }"
-                 :data-bg="article.cover">
-                <div class="container">
+                 :data-bg="article.cover" style="background-size: cover">
+                <div class="container" style="margin-top:300px;">
                     <div class="row">
                         <div class="col s10 offset-s1">
                             <div class="title center-align">{{article.title}}</div>
@@ -307,13 +307,12 @@
                 $(function () {
                     let coverSlider = $('.carousel');
                     //用户触摸轮播自动 restartPlay 是否生效
-                    let initUserPressedOrDraggedActive = false
+                    let initUserPressedOrDraggedActive = false;
 
                     //用户触摸轮播自动 restartPlay
                     function initUserPressedOrDragged(instance) {
                         setInterval(() => {
                             if (instance.pressed || instance.dragged) {
-                                // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
                                 restartPlay()
                             }
                         }, 1000)
@@ -325,12 +324,11 @@
                         indicators: 'true' === 'true',
                         onCycleTo() {
                             if (!initUserPressedOrDraggedActive) {
-                                // console.log('initUserPressedOrDraggedActive')
-                                initUserPressedOrDragged(this)
+                                initUserPressedOrDragged(this);
                                 initUserPressedOrDraggedActive = true
                             }
                         },
-                    })
+                    });
 
                     let carouselIntervalId;
 

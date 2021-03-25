@@ -45,7 +45,6 @@ public class ArchivesController {
             articleDate.setMonth(null);
             articleDate.setDay(null);
         }
-
         Page<Article> pageInfo = articleService.listPreviewPageByDate(1, Integer.parseInt(Constant.PAGE_SIZE), null);
 
         ArchivesVO archivesVo = new ArchivesVO();

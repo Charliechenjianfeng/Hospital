@@ -50,6 +50,10 @@ public class Category implements Serializable {
     @TableField(exist = false)
     private Integer articleCount;
 
+    @ApiModelProperty("关联简介数量")
+    @TableField(exist = false)
+    private Integer introCount;
+
     public interface Table {
         String ID = "id";
         String NAME = "name";

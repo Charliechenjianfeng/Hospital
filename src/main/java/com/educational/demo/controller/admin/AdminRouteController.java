@@ -65,6 +65,9 @@ public class AdminRouteController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private IntroService introService;
+
 
 
     @ApiOperation("页面路由")
@@ -192,5 +195,13 @@ public class AdminRouteController {
     public String editTag(@PathVariable("id") Long id, Model model) {
         model.addAttribute("tag", tagService.getById(id));
         return "admin/tag/tag-edit";
+    }
+
+    @ApiOperation("更新简介页面")
+    @PreAuthorize("hasAuthority('doctor:Intro:edit')")
+    @GetMapping("/intro/{id}")
+    public String editIntro(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("article", introService.getById(id));
+        return "admin/intro/intro-edit";
     }
 }

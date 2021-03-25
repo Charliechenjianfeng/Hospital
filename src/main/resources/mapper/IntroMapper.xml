@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.educational.demo.dao.IntroMapper">
+    <resultMap id="tableResultMap" type="com.educational.demo.model.Intro">
+    <id property="id" column="id"/>
+    <result property="doctorName" column="doctorName"/>
+    <result property="cover" column="cover"/>
+    <result property="createTime" column="createTime"/>
+    <result property="updateTime" column="updateTime"/>
+    <association property="category" javaType="com.educational.demo.model.Category">
+        <id property="id" column="cid"/>
+        <id property="name" column="cname"/>
+        <id property="color" column="color"/>
+    </association>
+    </resultMap>
+
+    <resultMap id="previewResultMap" type="com.educational.demo.model.Intro">
+        <id property="id" column="id"/>
+        <result property="doctorName" column="doctorName"/>
+        <result property="summary" column="summary"/>
+        <result property="cover" column="cover"/>
+        <result property="createTime" column="createTime"/>
+        <association property="category" javaType="com.educational.demo.model.Category">
+            <id property="id" column="cid"/>
+            <result property="name" column="cname"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="selectResultMap" type="com.educational.demo.model.Intro">
+        <id property="id" column="id"/>
+        <result property="doctorName" column="doctorName"/>
+        <result property="cover" column="cover"/>
+        <result property="summary" column="summary"/>
+        <result property="content" column="content"/>
+        <result property="textContent" column="textContent"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+        <association property="category" javaType="com.educational.demo.model.Category">
+            <id property="id" column="cid"/>
+            <id property="name" column="cname"/>
+            <id property="color" column="color"/>
+        </association>
+    </resultMap>
+
+    <select id="listTableByPage" resultMap="tableResultMap"
+            parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select ti.id, ti.doctorName, ti.cover, ti.createTime,ti.updateTime, tc.id as cid,tc.name as cname, tc.color
+        from t_intro ti
+        left join t_category tc on ti.categoryId = tc.id
+        <if test="ew != null and ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+
+    <select id="listPreviewByPage" resultMap="previewResultMap"
+            parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page">
+        select ti.id, ti.doctorName, ti.cover , ti.summary, ti.createTime, tc.name as cname , tc.id as cid
+        from t_intro ti
+        left join t_category tc
+        on ti.categoryId = tc.id
+        where tc.id = #{categoryId}
+        order by  ti.createTime desc
+    </select>
+
+
+    <select id="selectById" resultMap="selectResultMap">
+        select ti.id, ti.doctorName, ti.cover , ti.summary, ti.createTime,ti.content, ti.textContent, tc.name as cname , tc.id as cid
+        from t_intro ti
+        left join t_category tc on ti.categoryId = tc.id
+        where ti.id = #{id}
+    </select>
+
+
+
+</mapper>

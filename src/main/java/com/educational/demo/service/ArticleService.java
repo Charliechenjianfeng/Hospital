@@ -5,6 +5,7 @@ package com.educational.demo.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.dto.ArticleDocument;
 import com.educational.demo.model.Article;
+import com.educational.demo.model.Intro;
 import com.educational.demo.query.ArticleQuery;
 import com.educational.demo.vo.ArchivesQuery;
 import com.educational.demo.vo.ArticleDateVO;
@@ -130,6 +131,8 @@ public interface ArticleService {
      * @return 文章列表
      */
     Page<Article> listPreviewPageByCategoryId(Integer current, Integer size, Long categoryId);
+
+
 
     /**
      * 根据标签ID分页获取标签的所有文章
