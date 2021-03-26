@@ -31,7 +31,7 @@
                count(*) viewCount
         FROM (SELECT *
               FROM sys_access_log
-              WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) = date(createTime)) as sal
+              WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY)  &lt;=  date(createTime)) as sal
         GROUP BY date;
     </select>
 

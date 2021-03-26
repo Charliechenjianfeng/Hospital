@@ -34,4 +34,11 @@
     order by dt.doctorId
     </select>
 
+    <select id="doctorIncome" resultType="com.educational.demo.vo.ViewMoneyVO">
+        select d.doctorName, SUM(bd.totalPrice) total from doctor d,registration re,billingdetails bd
+        where  re.registrationId = bd.registrationId and re.doctorId = d.doctorId and bd.payStatus = 1
+        GROUP BY  d.doctorId
+        limit 10
+    </select>
+
 </mapper>

@@ -10,6 +10,7 @@ import com.educational.demo.model.Doctor;
 import com.educational.demo.query.DoctorQuery;
 import com.educational.demo.service.DoctorService;
 import com.educational.demo.util.StringUtils;
+import com.educational.demo.vo.ViewMoneyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -83,5 +84,10 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public Doctor selectById(Integer id) {
         return doctorMapper.selectById(id);
+    }
+
+    @Override
+    public List<ViewMoneyVO> doctorIncome() {
+        return doctorMapper.doctorIncome();
     }
 }

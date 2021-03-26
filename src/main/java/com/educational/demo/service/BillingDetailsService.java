@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.model.Billingdetails;
 import com.educational.demo.model.Doctor;
 import com.educational.demo.query.DoctorQuery;
+import com.educational.demo.vo.MonthCountVO;
+
+import java.util.List;
 
 /**
  * @Author: Mångata
@@ -45,5 +48,12 @@ public interface BillingDetailsService {
      * @return
      */
     Double countOneDay();
+
+
+    /**
+     * 根据月份统计
+     * @return
+     */
+    List<MonthCountVO> monthCount();
 
 }

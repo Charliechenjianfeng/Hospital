@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.model.Billingdetails;
 import com.educational.demo.model.Doctor;
+import com.educational.demo.vo.MonthCountVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author: Mångata
@@ -44,4 +47,10 @@ public interface BillingDetailsMapper extends BaseMapper<Billingdetails> {
      * @return
      */
     Double countOneDay();
+
+    /**
+     * 根据月份统计
+     * @return
+     */
+    List<MonthCountVO> monthCount();
 }

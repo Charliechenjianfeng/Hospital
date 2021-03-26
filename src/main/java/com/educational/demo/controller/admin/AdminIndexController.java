@@ -93,6 +93,7 @@ public class AdminIndexController {
         indexVO.setTagCount(tagService.countAll());
         indexVO.setArticles(articleService.listNewest());
         indexVO.setFrontViews(accessLogService.countByLast7Days());
+        indexVO.setBackViews(accessLogService.countByLast7Days());
         indexVO.setAccessLogs(accessLogService.listNewest());
         indexVO.setCountOneDay(billingDetailsService.countOneDay());
         indexVO.setRegistrationCount(registrationService.countAll());

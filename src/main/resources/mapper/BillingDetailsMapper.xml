@@ -38,4 +38,9 @@
     <select id="countOneDay" resultType="Double">
         select sum(totalPrice) from billingdetails  bd where bd.payStatus =1 and date(bd.createTime) = curdate()
     </select>
+
+
+    <select id="monthCount" resultType="com.educational.demo.vo.MonthCountVO">
+        SELECT DATE_FORMAT(createTime,'%m') months,SUM(totalPrice) total FROM billingdetails where YEAR(createTime)=YEAR(NOW()) GROUP BY months
+    </select>
 </mapper>

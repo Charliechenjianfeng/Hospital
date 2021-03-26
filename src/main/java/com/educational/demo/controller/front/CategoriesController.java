@@ -67,7 +67,7 @@ public class CategoriesController {
     }
 
 
-    @ApiOperation("查询分类文章")
+    @ApiOperation("查询分类医生详情")
     @GetMapping("/category/{id}/intro")
     public ResponseEntity<Object> categoryIntro(@PathVariable("id") Long id,
                                                    @RequestParam(value = "current", defaultValue = "1") Integer current,

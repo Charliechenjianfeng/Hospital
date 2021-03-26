@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.educational.demo.model.Doctor;
 import com.educational.demo.model.Role;
+import com.educational.demo.vo.ViewMoneyVO;
 import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -29,4 +30,11 @@ public interface DoctorMapper extends BaseMapper<Doctor> {
     * @return 医生列表
     */
    Page<Doctor> listTableByPage(IPage<Doctor> page, @Param("ew") QueryWrapper<Doctor> queryWrapper);
+
+
+   /**
+    * 获取医生门诊收入
+    * @return
+    */
+   List<ViewMoneyVO> doctorIncome();
 }

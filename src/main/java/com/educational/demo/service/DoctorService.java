@@ -5,6 +5,7 @@ import com.educational.demo.model.Doctor;
 import com.educational.demo.model.Registration;
 import com.educational.demo.query.DoctorQuery;
 import com.educational.demo.query.RegistrationQuery;
+import com.educational.demo.vo.ViewMoneyVO;
 
 import java.util.List;
 
@@ -58,4 +59,11 @@ public interface DoctorService {
      * @return 医生对象
      */
     Doctor selectById(Integer Id);
+
+    /**
+     * 获取医生收入
+     * @return
+     */
+    List<ViewMoneyVO> doctorIncome();
+
 }

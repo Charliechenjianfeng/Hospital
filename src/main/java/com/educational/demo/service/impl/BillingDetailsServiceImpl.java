@@ -5,8 +5,11 @@ import com.educational.demo.dao.BillingDetailsMapper;
 import com.educational.demo.model.Billingdetails;
 import com.educational.demo.model.Doctor;
 import com.educational.demo.service.BillingDetailsService;
+import com.educational.demo.vo.MonthCountVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author: Mångata
@@ -43,5 +46,10 @@ public class BillingDetailsServiceImpl implements BillingDetailsService {
     @Override
     public Double countOneDay() {
         return billingDetailsMapper.countOneDay();
+    }
+
+    @Override
+    public List<MonthCountVO> monthCount() {
+        return billingDetailsMapper.monthCount();
     }
 }
